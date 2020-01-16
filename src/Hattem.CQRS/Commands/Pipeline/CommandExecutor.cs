@@ -37,6 +37,8 @@ namespace Hattem.CQRS.Commands.Pipeline
             {
                 var current = _steps[i];
                 var next = i + 1 < _steps.Length ? _steps[i + 1] : null;
+
+                var response = await 
             }
             throw new System.NotImplementedException();
         }
