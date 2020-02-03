@@ -15,7 +15,7 @@ namespace Hattem.CQRS.DependencyInjection
 
         public CQRSBuilder ConfigureCommandExecution(Action<CommandExecutionPipelineBuilder> configure)
         {
-            configure ??= b => b.UseExecution();
+            configure ??= b => b.UseDefault();
 
             configure(CommandExecutionPipelineBuilder);
 
