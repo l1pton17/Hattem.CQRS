@@ -2,8 +2,6 @@
 using System.Threading.Tasks;
 using Hattem.Api;
 using Hattem.CQRS.Commands.Pipeline;
-using Hattem.CQRS.Extensions;
-using Microsoft.Extensions.Logging;
 
 namespace Hattem.CQRS.Commands
 {
@@ -35,21 +33,18 @@ namespace Hattem.CQRS.Commands
         where TSession : IHattemSession
     {
         private readonly IHandlerProvider<TSession, TConnection> _handlerProvider;
-        private readonly ILogger _logger;
         private readonly TConnection _connection;
         private readonly ICommandExecutor<TConnection> _executor;
 
         public CommandProcessor(
             TConnection connection,
             IHandlerProvider<TSession, TConnection> handlerProvider,
-            ILoggerFactory loggerFactory,
             ICommandExecutor<TConnection> executor
         )
         {
             _handlerProvider = handlerProvider ?? throw new ArgumentNullException(nameof(handlerProvider));
             _executor = executor ?? throw new ArgumentNullException(nameof(executor));
             _connection = connection;
-            _logger = loggerFactory.CreateLogger(GetType().GetFriendlyName());
         }
 
         public Task<ApiResponse<Unit>> Execute<TCommand>(TCommand command)

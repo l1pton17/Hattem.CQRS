@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.Extensions.Logging;
+using Hattem.CQRS.Commands.Pipeline;
 
 namespace Hattem.CQRS.Commands
 {
@@ -14,15 +14,15 @@ namespace Hattem.CQRS.Commands
         where TSession : IHattemSession
     {
         private readonly IHandlerProvider<TSession, TConnection> _handlerProvider;
-        private readonly ILoggerFactory _loggerFactory;
+        private readonly ICommandExecutor<TConnection> _commandExecutor;
 
         public CommandProcessorFactory(
             IHandlerProvider<TSession, TConnection> handlerProvider,
-            ILoggerFactory loggerFactory
+            ICommandExecutor<TConnection> commandExecutor
         )
         {
             _handlerProvider = handlerProvider ?? throw new ArgumentNullException(nameof(handlerProvider));
-            _loggerFactory = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
+            _commandExecutor = commandExecutor ?? throw new ArgumentNullException(nameof(commandExecutor));
         }
 
         public ICommandProcessor Create(TConnection connection)
@@ -30,7 +30,7 @@ namespace Hattem.CQRS.Commands
             return new CommandProcessor<TSession, TConnection>(
                 connection,
                 _handlerProvider,
-                _loggerFactory
+                _commandExecutor
             );
         }
     }

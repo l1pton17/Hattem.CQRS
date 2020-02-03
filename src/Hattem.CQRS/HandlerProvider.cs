@@ -100,7 +100,24 @@ namespace Hattem.CQRS
                     key,
                     _ =>
                     {
-                        var discoveryType = typeof(CommandHandlerDiscovery<,,,>)
+                        var commandHandler = _serviceProvider.GetRequiredService(
+                            typeof(ICommandHandler<,,>)
+                                .MakeGenericType(
+                                    typeof(TConnection),
+                                    commandType,
+                                    typeof(TReturn)
+                                ));
+
+                        var hasInvalidateCacheImplementation = commandHandler
+                            .GetType()
+                            .GetInterfaces()
+                            .Any(v => v == typeof(IInvalidateCacheCommandHandler<>).MakeGenericType(commandType));
+
+                        var handlerType = hasInvalidateCacheImplementation
+                            ? typeof(CommandHandlerWithCacheInvalidationDiscovery<,,,>)
+                            : typeof(CommandHandlerDiscovery<,,,>);
+
+                        var discoveryType = handlerType
                             .MakeGenericType(
                                 typeof(ICommandHandler<,,>)
                                     .MakeGenericType(
@@ -112,7 +129,7 @@ namespace Hattem.CQRS
                                 commandType,
                                 typeof(TReturn));
 
-                        return ActivatorUtilities.CreateInstance(_serviceProvider, discoveryType);
+                        return Activator.CreateInstance(discoveryType, commandHandler);
                     });
             }
 

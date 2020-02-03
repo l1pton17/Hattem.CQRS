@@ -12,7 +12,7 @@
     /// Command that returns a result
     /// </summary>
     /// <typeparam name="TReturn"></typeparam>
-    public interface ICommand<TReturn>
+    public interface ICommand<TReturn> : ICommand
     {
     }
 }

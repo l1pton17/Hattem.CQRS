@@ -5,9 +5,11 @@ namespace Hattem.CQRS.DependencyInjection
 {
     public static class CommandExecutionPipelineBuilderExtensions
     {
-        public static CommandExecutionPipelineBuilder UseExecution(this CommandExecutionPipelineBuilder builder)
+        public static CommandExecutionPipelineBuilder UseDefault(this CommandExecutionPipelineBuilder builder)
         {
-            builder.Use<ExecutionCommandPipelineStep>();
+            builder
+                .Use<LogCommandPipelineStep>()
+                .Use<InvalidateCacheCommandPipelineStep>();
 
             return builder;
         }

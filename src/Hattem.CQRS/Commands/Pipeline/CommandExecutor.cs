@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
 using System.Threading.Tasks;
 using Hattem.Api;
 
@@ -33,21 +36,73 @@ namespace Hattem.CQRS.Commands.Pipeline
         )
             where TCommand : ICommand
         {
-            for (var i = 0; i < _steps.Length; i++)
-            {
-                var current = _steps[i];
-                var next = i + 1 < _steps.Length ? _steps[i + 1] : null;
+            ExecuteCache<TCommand>.EnsureInitialized(_steps);
 
-                var response = await 
-            }
-            throw new System.NotImplementedException();
+            return ExecuteCache<TCommand>.Pipeline(context);
         }
 
         public Task<ApiResponse<TReturn>> ExecuteWithReturn<TReturn>(
             CommandWithReturnExecutionContext<TConnection, TReturn> context
         )
         {
-            throw new System.NotImplementedException();
+            var pipeline = ExecuteWithReturnCache<TReturn>.GetPipeline(_steps, context.Command.GetType());
+
+            return pipeline(context);
+        }
+
+        private static class ExecuteWithReturnCache<TReturn>
+        {
+            private static readonly ConcurrentDictionary<Type, Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>>> _cache =
+                new ConcurrentDictionary<Type, Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>>>();
+
+            public static Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>> GetPipeline(
+                ImmutableArray<ICommandPipelineStep> steps,
+                Type commandType
+            )
+            {
+                return _cache.GetOrAdd(commandType, _ => BuildPipeline());
+
+                Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>> BuildPipeline()
+                {
+                    Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>> pipeline = c
+                        => c.Handler.Execute(c.Connection, c.Command);
+
+                    foreach (var step in steps.Reverse())
+                    {
+                        var pipelineLocal = pipeline;
+
+                        pipeline = c => step.ExecuteWithReturn(pipelineLocal, c);
+                    }
+
+                    return pipeline;
+                }
+            }
+        }
+
+        private static class ExecuteCache<TCommand>
+            where TCommand : ICommand
+        {
+            public static Func<CommandExecutionContext<TConnection, TCommand>, Task<ApiResponse<Unit>>> Pipeline { get; private set; }
+
+            public static void EnsureInitialized(ImmutableArray<ICommandPipelineStep> steps)
+            {
+                if (Pipeline != null)
+                {
+                    return;
+                }
+
+                Func<CommandExecutionContext<TConnection, TCommand>, Task<ApiResponse<Unit>>> pipeline = c
+                    => c.Handler.Execute(c.Connection, c.Command);
+
+                foreach (var step in steps.Reverse())
+                {
+                    var pipelineLocal = pipeline;
+
+                    pipeline = c => step.Execute(pipelineLocal, c);
+                }
+
+                Pipeline = pipeline;
+            }
         }
     }
 }
