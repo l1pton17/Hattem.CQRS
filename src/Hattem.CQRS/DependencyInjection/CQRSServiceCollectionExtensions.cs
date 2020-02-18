@@ -1,16 +1,21 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Hattem.CQRS.DependencyInjection
 {
     public static class CQRSServiceCollectionExtensions
     {
-        public static CQRSBuilder AddCQRS(this IServiceCollection services)
+        public static IServiceCollection AddCQRS(
+            this IServiceCollection services,
+            Action<CQRSBuilder> configure = null)
         {
             var builder = new CQRSBuilder(services);
 
-            services.AddSingleton<ICacheStorage, NoOpCacheStorage>();
+            configure?.Invoke(builder);
 
-            return builder;
+            builder.Done();
+
+            return services;
         }
     }
 }
