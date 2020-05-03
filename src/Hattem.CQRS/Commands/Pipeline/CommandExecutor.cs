@@ -101,7 +101,7 @@ namespace Hattem.CQRS.Commands.Pipeline
                     pipeline = c => step.Execute(pipelineLocal, c);
                 }
 
-                Pipeline = pipeline;
+                Pipeline ??= pipeline;
             }
         }
     }

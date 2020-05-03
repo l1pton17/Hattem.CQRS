@@ -30,8 +30,7 @@ namespace Hattem.CQRS.Commands
             return new CommandProcessor<TSession, TConnection>(
                 connection,
                 _handlerProvider,
-                _commandExecutor
-            );
+                _commandExecutor);
         }
     }
 }

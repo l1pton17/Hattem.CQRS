@@ -2,7 +2,7 @@
 
 namespace Hattem.CQRS.Commands
 {
-    public struct CommandExecutionContext<TConnection, TCommand>
+    public readonly struct CommandExecutionContext<TConnection, TCommand>
         where TConnection : IHattemConnection
         where TCommand : ICommand
     {
@@ -34,13 +34,13 @@ namespace Hattem.CQRS.Commands
         public ICommand<TReturn> Command { get; }
 
         public CommandWithReturnExecutionContext(
-            TConnection connection,
             ICommandHandler<TConnection, ICommand<TReturn>, TReturn> handler,
+            TConnection connection,
             ICommand<TReturn> command
         )
         {
             Handler = handler ?? throw new ArgumentNullException(nameof(handler));
-            Command = command;
+            Command = command ?? throw new ArgumentNullException(nameof(command));
             Connection = connection;
         }
     }
@@ -48,21 +48,21 @@ namespace Hattem.CQRS.Commands
     public static class CommandExecutionContext
     {
         public static CommandWithReturnExecutionContext<TConnection, TReturn> CreateWithReturn<TConnection, TReturn>(
-            TConnection connection,
             ICommandHandler<TConnection, ICommand<TReturn>, TReturn> handler,
+            TConnection connection,
             ICommand<TReturn> command
         )
             where TConnection : IHattemConnection
         {
             return new CommandWithReturnExecutionContext<TConnection, TReturn>(
-                connection,
                 handler,
+                connection,
                 command);
         }
 
         public static CommandExecutionContext<TConnection, TCommand> Create<TConnection, TCommand>(
-            TConnection connection,
             ICommandHandler<TConnection, TCommand> handler,
+            TConnection connection,
             TCommand command
         )
             where TConnection : IHattemConnection

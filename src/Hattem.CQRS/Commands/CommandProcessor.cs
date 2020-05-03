@@ -32,8 +32,8 @@ namespace Hattem.CQRS.Commands
         where TConnection : IHattemConnection
         where TSession : IHattemSession
     {
-        private readonly IHandlerProvider<TSession, TConnection> _handlerProvider;
         private readonly TConnection _connection;
+        private readonly IHandlerProvider<TSession, TConnection> _handlerProvider;
         private readonly ICommandExecutor<TConnection> _executor;
 
         public CommandProcessor(
@@ -53,8 +53,8 @@ namespace Hattem.CQRS.Commands
             var commandHandler = _handlerProvider.GetCommandHandler<TCommand>();
 
             var context = CommandExecutionContext.Create(
-                _connection,
                 commandHandler,
+                _connection,
                 command);
 
             return _executor.Execute(context);
@@ -65,8 +65,8 @@ namespace Hattem.CQRS.Commands
             var commandHandler = _handlerProvider.GetCommandWithReturnHandler<TReturn>(command.GetType());
 
             var context = CommandExecutionContext.CreateWithReturn(
-                _connection,
                 commandHandler,
+                _connection,
                 command);
 
             return _executor.ExecuteWithReturn(context);

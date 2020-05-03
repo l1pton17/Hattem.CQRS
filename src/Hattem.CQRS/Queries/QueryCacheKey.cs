@@ -2,7 +2,7 @@
 
 namespace Hattem.CQRS.Queries
 {
-    public struct QueryCacheKey
+    public readonly struct QueryCacheKey
     {
         public string CacheKey { get; }
 
