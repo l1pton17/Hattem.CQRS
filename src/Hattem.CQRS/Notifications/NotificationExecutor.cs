@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Hattem.Api;
 using Hattem.Api.Fluent;
+using Hattem.CQRS.Notifications.Pipeline;
 
 namespace Hattem.CQRS.Notifications
 {
@@ -17,22 +18,36 @@ namespace Hattem.CQRS.Notifications
         where TConnection : IHattemConnection
     {
         private readonly IHandlerProvider<TSession, TConnection> _handlerProvider;
+        private readonly INotificationExecutor<TSession> _executor;
 
-        public NotificationPublisher(IHandlerProvider<TSession, TConnection> handlerProvider)
+        public NotificationPublisher(
+            IHandlerProvider<TSession, TConnection> handlerProvider,
+            INotificationExecutor<TSession> executor)
         {
             _handlerProvider = handlerProvider ?? throw new ArgumentNullException(nameof(handlerProvider));
+            _executor = executor ?? throw new ArgumentNullException(nameof(executor));
         }
 
         public Task<ApiResponse<Unit>> Publish<TNotification>(TSession session, TNotification notification)
             where TNotification : INotification
         {
-            var handlers = _handlerProvider.GetNotificationHandlers<TNotification>();
+            async Task<ApiResponse<Unit>> Handle(INotificationHandler<TSession, TNotification> handler)
+            {
+                var context = NotificationExecutionContext.Create(session, handler, notification);
 
-            return handlers.ForEach(
-                handler => handler
-                    .Handle(session, notification)
-                    .Catch()
-                    .Unwrap());
+                var notifyResponse = await _executor.Handle(context).Catch().Unwrap();
+
+                if (notifyResponse.HasErrors && !handler.Options.IsRequired)
+                {
+                    return ApiResponse.Ok();
+                }
+
+                return notifyResponse;
+            }
+
+            return _handlerProvider
+                .GetNotificationHandlers<TNotification>()
+                .ForEach(handler => Handle(handler));
         }
     }
 }

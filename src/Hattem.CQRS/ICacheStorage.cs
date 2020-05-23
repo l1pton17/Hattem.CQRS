@@ -28,16 +28,11 @@ namespace Hattem.CQRS
             TimeSpan? relativeExpiration
         );
 
-        Task<ApiResponse<Unit>> GetValue<T>(string key, string region);
+        Task<ApiResponse<T>> GetValue<T>(string key, string region);
     }
 
     internal sealed class NoOpCacheStorage : ICacheStorage
     {
-        private readonly Task<ApiResponse<Unit>> _cacheNotFoundError =
-            ApiResponse
-                .Error(CacheNotFoundError.Default)
-                .AsTask();
-
         public Task<ApiResponse<Unit>> Invalidate(string key, string region)
         {
             return ApiResponse.OkAsync();
@@ -78,9 +73,16 @@ namespace Hattem.CQRS
             return ApiResponse.OkAsync();
         }
 
-        public Task<ApiResponse<Unit>> GetValue<T>(string key, string region)
+        public Task<ApiResponse<T>> GetValue<T>(string key, string region)
         {
-            return _cacheNotFoundError;
+            return CacheNotFoundError<T>.Instance;
         }
-    }
+
+        private static class CacheNotFoundError<T>
+        {
+            public static readonly Task<ApiResponse<T>> Instance = ApiResponse
+                .Error<T>(CacheNotFoundError.Default)
+                .AsTask();
+        }
+}
 }

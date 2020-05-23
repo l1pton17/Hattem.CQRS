@@ -61,6 +61,7 @@ namespace Hattem.CQRS
                                     typeof(TNotification)))
                         .Cast<IHasNotificationHandlerOptions>()
                         .OrderBy(v => v.Options.Order)
+                        .Cast<INotificationHandler<TSession, TNotification>>()
                         .ToImmutableArray());
             }
 

@@ -14,16 +14,16 @@ namespace Hattem.CQRS.Notifications
     /// <summary>
     /// Base interface for domain event handler. Do not use explicit.
     /// </summary>
-    public interface INotificationHandler<in TSession, in TDomainEvent> : IHasNotificationHandlerOptions
-        where TDomainEvent : INotification
+    public interface INotificationHandler<in TSession, in TNotification> : IHasNotificationHandlerOptions
+        where TNotification : INotification
         where TSession : IHattemSession
     {
         /// <summary>
         /// Handle domain event
         /// </summary>
         /// <param name="session"></param>
-        /// <param name="domainEvent"></param>
+        /// <param name="notification"></param>
         /// <returns></returns>
-        Task<ApiResponse<Unit>> Handle(TSession session, TDomainEvent domainEvent);
+        Task<ApiResponse<Unit>> Handle(TSession session, TNotification notification);
     }
 }

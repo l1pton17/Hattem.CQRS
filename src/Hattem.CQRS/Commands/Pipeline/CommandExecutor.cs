@@ -84,7 +84,7 @@ namespace Hattem.CQRS.Commands.Pipeline
         {
             public static Func<CommandExecutionContext<TConnection, TCommand>, Task<ApiResponse<Unit>>> Pipeline { get; private set; }
 
-            public static void EnsureInitialized(ImmutableArray<ICommandPipelineStep> steps)
+            public static void EnsureInitialized(in ImmutableArray<ICommandPipelineStep> steps)
             {
                 if (Pipeline != null)
                 {

@@ -26,8 +26,8 @@ namespace Hattem.CQRS.Queries
     public static class QueryExecutionContext
     {
         public static QueryExecutionContext<TConnection, TResult> Create<TConnection, TResult>(
-            IQueryHandler<TConnection, IQuery<TResult>, TResult> handler,
             TConnection connection,
+            IQueryHandler<TConnection, IQuery<TResult>, TResult> handler,
             IQuery<TResult> query
         )
             where TConnection : IHattemConnection

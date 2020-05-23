@@ -42,13 +42,13 @@ namespace Hattem.CQRS.Commands.Pipeline.Steps
             ICommand<TReturn> command)
             where TConnection : IHattemConnection
         {
-            if (handler is IInvalidateCacheCommandHandler<ICommand<TReturn>> invalidateCacheCommand)
+            if (handler is IInvalidateCacheCommandHandler<ICommand<TReturn>> invalidateCacheCommandHandler)
             {
                 return _cacheStorage
-                    .Invalidate(invalidateCacheCommand.GetCacheKeys(command))
+                    .Invalidate(invalidateCacheCommandHandler.GetCacheKeys(command))
                     .Then(
                         _ => _cacheStorage.InvalidateRegions(
-                            invalidateCacheCommand.GetCacheRegions(command)));
+                            invalidateCacheCommandHandler.GetCacheRegions(command)));
             }
 
             return ApiResponse.OkAsync();
@@ -60,13 +60,13 @@ namespace Hattem.CQRS.Commands.Pipeline.Steps
             where TConnection : IHattemConnection
             where TCommand : ICommand
         {
-            if (handler is IInvalidateCacheCommandHandler<TCommand> invalidateCacheCommand)
+            if (handler is IInvalidateCacheCommandHandler<TCommand> invalidateCacheCommandHandler)
             {
                 return _cacheStorage
-                    .Invalidate(invalidateCacheCommand.GetCacheKeys(command))
+                    .Invalidate(invalidateCacheCommandHandler.GetCacheKeys(command))
                     .Then(
                         _ => _cacheStorage.InvalidateRegions(
-                            invalidateCacheCommand.GetCacheRegions(command)));
+                            invalidateCacheCommandHandler.GetCacheRegions(command)));
             }
 
             return ApiResponse.OkAsync();

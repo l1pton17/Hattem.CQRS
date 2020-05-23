@@ -19,8 +19,8 @@ namespace Hattem.CQRS.Commands
         )
         {
             Handler = handler ?? throw new ArgumentNullException(nameof(handler));
-            Command = command;
-            Connection = connection;
+            Command = command ?? throw new ArgumentNullException(nameof(command));
+            Connection = connection ?? throw new ArgumentNullException(nameof(connection));
         }
     }
 
@@ -61,8 +61,8 @@ namespace Hattem.CQRS.Commands
         }
 
         public static CommandExecutionContext<TConnection, TCommand> Create<TConnection, TCommand>(
-            ICommandHandler<TConnection, TCommand> handler,
             TConnection connection,
+            ICommandHandler<TConnection, TCommand> handler,
             TCommand command
         )
             where TConnection : IHattemConnection

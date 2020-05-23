@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7163c28b-a603-409b-a76e-9433a0b478b0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Errors/TestError.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionFactoryMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Errors/ErrorCodes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionPipelineBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Pipeline/CatchNotificationPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/NotRequiredErrorNotification.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/NotRequiredErrorNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/NotificationPublisherTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/OrderTrackerNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteAndReturnCommandProcessorTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/OrderTrackerNotification.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/ErrorNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/ErrorNotification.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/TestsBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/DependencyInjection/CQRSBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/DependencyInjection/CQRSServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/Pipeline/NotificationExecutor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/Pipeline/INotificationPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/INotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/INotification.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationHandlerOptions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Extensions/TypeExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Extensions/HandlerExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/ICommandPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/CommandExecutor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandProcessor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandExecutionPipelineBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/INotificationHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/TestNotification.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/Pipeline/CatchCommandPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/TestNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/Pipeline/Steps/CacheQueryPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7B19537B-F065-4C3F-9F78-85C4099CD3AA/a5/26fb60c0/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/HandlerProvider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/IHattemConnection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/Pipeline/QueryExecutor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/IHattemSession.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryExecutionContext.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandExecutionContext.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionContext.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/ICommandPipelineStep.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/CommandExecutor.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutor.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/TestNotification.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/ErrorNotificationHandler.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/INotificationHandler.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/TestNotificationHandler.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/ErrorNotification.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/OrderTrackerNotification.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationHandlerOptions.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/OrderTrackerNotificationHandler.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/INotificationHandlerMock.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/NotRequiredErrorNotification.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/NotRequiredErrorNotificationHandler.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/HandlerProvider.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/Pipeline/INotificationPipelineStep.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/Pipeline/NotificationExecutor.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Pipeline/CatchNotificationPipelineStep.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/NotificationPublisherTests.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionPipelineBuilder.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/DependencyInjection/CQRSBuilder.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/TestsBase.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1burCVBSTeD4TkeqaZAEjhrBAp5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.SolutionExplorerActivator" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7163c28b-a603-409b-a76e-9433a0b478b0" name="Default Changelist" comment="" />
+      <created>1589492692714</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589492692714</updated>
+      <workItem from="1589492697497" duration="3850000" />
+      <workItem from="1590232075414" duration="5345000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="WindowStateProjectService">
+    <state x="961" y="184" key="RiderGenerateDialog" timestamp="1590240178122">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="961" y="184" key="RiderGenerateDialog/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1590240178122" />
+    <state x="961" y="184" key="RiderGenerateDialog/2560.0.1920.1040/2559.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1589496401136" />
+    <state x="2560" y="0" width="1936" height="1027" maximized="true" key="dock-window-1" timestamp="1590234266017">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2560" y="0" width="1936" height="1027" maximized="true" key="dock-window-1/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1590234266017" />
+    <state x="2560" y="27" width="1936" height="1027" maximized="true" key="dock-window-1/2560.0.1920.1040/2559.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1589492879145" />
+    <state x="943" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589492870003">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="943" y="225" width="672" height="678" key="search.everywhere.popup/2560.0.1920.1040/2559.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1589492870003" />
+  </component>
+</project>

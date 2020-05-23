@@ -53,8 +53,8 @@ namespace Hattem.CQRS.Commands
             var commandHandler = _handlerProvider.GetCommandHandler<TCommand>();
 
             var context = CommandExecutionContext.Create(
-                commandHandler,
                 _connection,
+                commandHandler,
                 command);
 
             return _executor.Execute(context);

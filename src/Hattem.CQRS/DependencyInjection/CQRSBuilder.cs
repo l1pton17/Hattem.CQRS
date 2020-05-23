@@ -6,8 +6,10 @@ using Hattem.CQRS.Commands;
 using Hattem.CQRS.Commands.Pipeline;
 using Hattem.CQRS.Commands.Pipeline.Steps;
 using Hattem.CQRS.Notifications;
+using Hattem.CQRS.Notifications.Pipeline;
 using Hattem.CQRS.Queries;
 using Hattem.CQRS.Queries.Pipeline;
+using Hattem.CQRS.Queries.Pipeline.Steps;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -20,6 +22,8 @@ namespace Hattem.CQRS.DependencyInjection
         internal CommandExecutionPipelineBuilder CommandExecutionPipelineBuilder { get; private set; }
         
         internal QueryExecutionPipelineBuilder QueryExecutionPipelineBuilder { get; private set; }
+
+        internal NotificationExecutionPipelineBuilder NotificationExecutionPipelineBuilder { get; private set; }
 
         public CQRSBuilder(IServiceCollection services)
         {
@@ -48,6 +52,7 @@ namespace Hattem.CQRS.DependencyInjection
         {
             _services.AddSingleton<ICacheStorage, TCacheStorage>();
             _services.AddSingleton<ICommandPipelineStep, InvalidateCacheCommandPipelineStep>();
+            _services.AddSingleton<IQueryPipelineStep, CacheQueryPipelineStep>();
 
             return this;
         }
@@ -68,15 +73,26 @@ namespace Hattem.CQRS.DependencyInjection
         {
             _services.AddSingleton<TISessionFactory, TSessionFactory>();
             _services.AddSingleton<IHattemConnection, TConnection>();
-            _services.AddSingleton<INotificationPublisher<TSession>, NotificationPublisher<TSession, TConnection>>();
             _services.AddSingleton<IHattemSessionFactory<TSession>, TSessionFactory>();
             _services.AddSingleton<IHandlerProvider<TSession, TConnection>, HandlerProvider<TSession, TConnection>>();
+
+            _services.AddSingleton<INotificationExecutor<TSession>, NotificationExecutor<TSession>>();
+            _services.AddSingleton<INotificationPublisher<TSession>, NotificationPublisher<TSession, TConnection>>();
 
             _services.AddSingleton<ICommandExecutor<TConnection>, CommandExecutor<TConnection>>();
             _services.AddSingleton<ICommandProcessorFactory<TConnection>, CommandProcessorFactory<TSession, TConnection>>();
 
             _services.AddSingleton<IQueryExecutor<TConnection>, QueryExecutor<TConnection>>();
             _services.AddSingleton<IQueryProcessorFactory<TConnection>, QueryProcessorFactory<TSession, TConnection>>();
+
+            return this;
+        }
+
+        public CQRSBuilder ConfigureNotificationExecution(Action<NotificationExecutionPipelineBuilder> configure)
+        {
+            NotificationExecutionPipelineBuilder = new NotificationExecutionPipelineBuilder(_services);
+
+            configure(NotificationExecutionPipelineBuilder);
 
             return this;
         }

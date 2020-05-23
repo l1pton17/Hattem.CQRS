@@ -43,8 +43,8 @@ namespace Hattem.CQRS.Queries
             var queryHandler = _handlerProvider.GetQueryHandler<TResult>(query.GetType());
 
             var context = QueryExecutionContext.Create(
-                queryHandler,
                 _connection,
+                queryHandler,
                 query);
 
             return _executor.Process(context);

@@ -20,7 +20,7 @@
         }
 
         public static NotificationHandlerOptions Create(
-            bool isRequired,
+            bool isRequired = true,
             int order = 0
         )
         {
