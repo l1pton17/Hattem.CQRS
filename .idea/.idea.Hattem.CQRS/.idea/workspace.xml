@@ -128,6 +128,7 @@
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionContext.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionMock.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/NotificationPublisherTests.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/Hattem.CQRS.Sql.csproj" />
       </list>
     </option>
   </component>
@@ -155,7 +156,7 @@
       <workItem from="1590232075414" duration="5371000" />
       <workItem from="1591031250761" duration="941000" />
       <workItem from="1591732405689" duration="2056000" />
-      <workItem from="1595281461262" duration="2452000" />
+      <workItem from="1595281461262" duration="2782000" />
     </task>
     <servers />
   </component>
