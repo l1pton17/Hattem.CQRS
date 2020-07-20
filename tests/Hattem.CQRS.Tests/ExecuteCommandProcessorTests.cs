@@ -42,7 +42,7 @@ namespace Hattem.CQRS.Tests
             var session = CreateSession();
             var (command, _) = CommandHandlerMock.GetCommand();
 
-            await session.CommandProcessor.Execute(command);
+            await session.ExecuteCommand(command);
 
             CatchCommandPipelineStep.AssertCommandContextCaptured<CommandMock>(
                 // ReSharper disable once IsExpressionAlwaysTrue
@@ -55,7 +55,7 @@ namespace Hattem.CQRS.Tests
             var session = CreateSession();
             var (command, _) = CommandHandlerMock.GetCommand();
 
-            await session.CommandProcessor.Execute(command);
+            await session.ExecuteCommand(command);
 
             CatchCommandPipelineStep.AssertCommandContextCaptured<CommandMock>(
                 context => context.Handler is CommandHandlerMock);
@@ -67,7 +67,7 @@ namespace Hattem.CQRS.Tests
             var session = CreateSession();
             var (command, _) = CommandHandlerMock.GetCommand();
 
-            await session.CommandProcessor.Execute(command);
+            await session.ExecuteCommand(command);
 
             CatchCommandPipelineStep.AssertCommandContextCaptured<CommandMock>(
                 context => context.Command.Id == command.Id);
@@ -79,7 +79,7 @@ namespace Hattem.CQRS.Tests
         {
             var session = CreateSession();
 
-            var actual = await session.CommandProcessor.Execute(command);
+            var actual = await session.ExecuteCommand(command);
 
             Assert.Equal(actual.IsOk, expected.IsOk);
             Assert.Equal(actual.Error?.Code, expected.Error?.Code);

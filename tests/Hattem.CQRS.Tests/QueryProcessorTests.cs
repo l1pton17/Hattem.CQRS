@@ -44,7 +44,7 @@ namespace Hattem.CQRS.Tests
             var session = CreateSession();
             var (query, _) = QueryHandlerMock.GetQuery();
 
-            await session.QueryProcessor.Process(query);
+            await session.ProcessQuery(query);
 
             CatchQueryPipelineStep.AssertContextCaptured<QueryMockResult>(
                 // ReSharper disable once IsExpressionAlwaysTrue
@@ -57,7 +57,7 @@ namespace Hattem.CQRS.Tests
             var session = CreateSession();
             var (query, _) = QueryHandlerMock.GetQuery();
 
-            await session.QueryProcessor.Process(query);
+            await session.ProcessQuery(query);
 
             CatchQueryPipelineStep.AssertContextCaptured<QueryMockResult>(
                 context => context.Handler is QueryHandlerDiscovery<IQueryHandler<HattemSessionMock, QueryMock, QueryMockResult>, HattemSessionMock, QueryMock, QueryMockResult> handlerDiscovery
@@ -70,7 +70,7 @@ namespace Hattem.CQRS.Tests
             var session = CreateSession();
             var (query, _) = QueryHandlerMock.GetQuery();
 
-            await session.QueryProcessor.Process(query);
+            await session.ProcessQuery(query);
 
             CatchQueryPipelineStep.AssertContextCaptured<QueryMockResult>(
                 context => context.Query is QueryMock actualQuery && actualQuery.Id == query.Id);
@@ -82,7 +82,7 @@ namespace Hattem.CQRS.Tests
         {
             var session = CreateSession();
 
-            var actual = await session.QueryProcessor.Process(query);
+            var actual = await session.ProcessQuery(query);
 
             Assert.Equal(actual.IsOk, expected.IsOk);
             Assert.Equal(actual.Error?.Code, expected.Error?.Code);

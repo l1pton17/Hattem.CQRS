@@ -6,7 +6,7 @@ namespace Hattem.CQRS.Queries
     public interface IQueryProcessorFactory<in TConnection>
         where TConnection : IHattemConnection
     {
-        IQueryProcessor Create(TConnection connection);
+        IQueryProcessor<TConnection> Create();
     }
 
     internal sealed class QueryProcessorFactory<TSession, TConnection> : IQueryProcessorFactory<TConnection>
@@ -25,10 +25,9 @@ namespace Hattem.CQRS.Queries
             _queryExecutor = queryExecutor ?? throw new ArgumentNullException(nameof(queryExecutor));
         }
 
-        public IQueryProcessor Create(TConnection connection)
+        public IQueryProcessor<TConnection> Create()
         {
             return new QueryProcessor<TSession, TConnection>(
-                connection,
                 _handlerProvider,
                 _queryExecutor);
         }

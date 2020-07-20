@@ -13,6 +13,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Hattem.CQRS" Version="0.9.3" />
+    <PackageReference Include="Hattem.CQRS" Version="1.0.2" />
   </ItemGroup>
 </Project>

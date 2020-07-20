@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\projects\Hattem\Hattem.CQRS" t="IncludeFlat">
+    <e p="C:\Users\sitdi\.nuget\packages\microsoft.net.test.sdk\16.6.1\build\netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\sitdi\.nuget\packages\microsoft.testplatform.testhost\16.6.1\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\sitdi\.nuget\packages\microsoft.testplatform.testhost\16.6.1\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\sitdi\.nuget\packages\xunit.runner.visualstudio\2.4.1\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="C:\Users\sitdi\.nuget\packages\xunit.runner.visualstudio\2.4.1\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="C:\Users\sitdi\.nuget\packages\xunit.runner.visualstudio\2.4.1\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="C:\Users\sitdi\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\sitdi\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_Hattem.CQRS.1920169047.00" t="ExcludeRecursive" />
+    <e p="D:\projects\Hattem\Hattem.CQRS" t="IncludeFlat">
       <e p="Hattem.CQRS.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="src" t="Include">
@@ -58,7 +68,7 @@
             </e>
           </e>
           <e p="obj" t="ExcludeRecursive">
-            <e p="Debug" t="Include">
+            <e p="Release" t="Include">
               <e p="netcoreapp3.1" t="Include">
                 <e p="Hattem.CQRS.AssemblyInfo.cs" t="Include" />
               </e>
@@ -88,9 +98,16 @@
         </e>
         <e p="Hattem.CQRS.Sql" t="IncludeRecursive">
           <e p="bin" t="ExcludeRecursive" />
+          <e p="DependencyInjection" t="Include">
+            <e p="SqlHattemCQRSServiceCollectionExtensions.cs" t="Include" />
+          </e>
           <e p="Hattem.CQRS.Sql.csproj" t="IncludeRecursive" />
+          <e p="IConnectionDbFactory.cs" t="Include" />
+          <e p="IDbConnectionFactory.cs" t="Include" />
+          <e p="ISqlDbConnection.cs" t="Include" />
+          <e p="ISqlDbTransaction.cs" t="Include" />
           <e p="obj" t="ExcludeRecursive">
-            <e p="Debug" t="Include">
+            <e p="Release" t="Include">
               <e p="netcoreapp3.1" t="Include">
                 <e p="Hattem.CQRS.Sql.AssemblyInfo.cs" t="Include" />
               </e>
@@ -99,6 +116,8 @@
               </e>
             </e>
           </e>
+          <e p="SqlHattemSession.cs" t="Include" />
+          <e p="SqlHattemSessionFactory.cs" t="Include" />
         </e>
       </e>
       <e p="tests" t="Include">
@@ -154,7 +173,7 @@
           <e p="Hattem.CQRS.Tests.csproj" t="IncludeRecursive" />
           <e p="NotificationPublisherTests.cs" t="Include" />
           <e p="obj" t="ExcludeRecursive">
-            <e p="Debug" t="Include">
+            <e p="Release" t="Include">
               <e p="netcoreapp3.1" t="Include">
                 <e p="Hattem.CQRS.Tests.AssemblyInfo.cs" t="Include" />
               </e>
@@ -165,15 +184,5 @@
         </e>
       </e>
     </e>
-    <e p="C:\Users\sitdi\.nuget\packages\microsoft.net.test.sdk\16.6.1\build\netcoreapp2.1" t="Include">
-      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
-    </e>
-    <e p="C:\Users\sitdi\.nuget\packages\microsoft.testplatform.testhost\16.6.1\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
-    <e p="C:\Users\sitdi\.nuget\packages\microsoft.testplatform.testhost\16.6.1\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
-    <e p="C:\Users\sitdi\.nuget\packages\xunit.runner.visualstudio\2.4.1\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll" t="Include" />
-    <e p="C:\Users\sitdi\.nuget\packages\xunit.runner.visualstudio\2.4.1\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll" t="Include" />
-    <e p="C:\Users\sitdi\.nuget\packages\xunit.runner.visualstudio\2.4.1\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
-    <e p="C:\Users\sitdi\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\sitdi\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Hattem.CQRS.-1191450952.00" t="ExcludeRecursive" />
   </component>
 </project>

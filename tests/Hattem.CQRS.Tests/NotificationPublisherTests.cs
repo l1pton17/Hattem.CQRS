@@ -41,7 +41,7 @@ namespace Hattem.CQRS.Tests
 
             await session.PublishNotification(notification);
 
-            CatchNotificationPipelineStep.AssertNotificationContextCaptured<TestNotification>(context => context.Session == session);
+            CatchNotificationPipelineStep.AssertNotificationContextCaptured<TestNotification>(context => context.Session.Id == session.Id);
         }
 
         [Fact(DisplayName = "Should execute handler")]

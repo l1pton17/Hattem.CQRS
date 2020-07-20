@@ -1,7 +1,7 @@
 ﻿namespace Hattem.CQRS
 {
     public interface IHattemSessionFactory<out TSession>
-        where TSession : class, IHattemSession
+        where TSession : IHattemSession
     {
         TSession Create();
     }

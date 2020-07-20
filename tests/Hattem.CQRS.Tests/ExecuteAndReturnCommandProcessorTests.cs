@@ -44,7 +44,7 @@ namespace Hattem.CQRS.Tests
             var session = CreateSession();
             var (command, _) = CommandWithReturnHandlerMock.GetCommand();
 
-            await session.CommandProcessor.ExecuteAndReturn(command);
+            await session.ExecuteCommandAndReturn(command);
 
             CatchCommandPipelineStep.AssertCommandWithReturnContextCaptured<CommandMockReturn>(
                 // ReSharper disable once IsExpressionAlwaysTrue
@@ -57,7 +57,7 @@ namespace Hattem.CQRS.Tests
             var session = CreateSession();
             var (command, _) = CommandWithReturnHandlerMock.GetCommand();
 
-            await session.CommandProcessor.ExecuteAndReturn(command);
+            await session.ExecuteCommandAndReturn(command);
 
             CatchCommandPipelineStep.AssertCommandWithReturnContextCaptured<CommandMockReturn>(
                 context => context.Handler is CommandHandlerDiscovery<ICommandHandler<HattemSessionMock, CommandWithReturnMock, CommandMockReturn>, HattemSessionMock, CommandWithReturnMock, CommandMockReturn> handlerDiscovery
@@ -70,7 +70,7 @@ namespace Hattem.CQRS.Tests
             var session = CreateSession();
             var (command, _) = CommandWithReturnHandlerMock.GetCommand();
 
-            await session.CommandProcessor.ExecuteAndReturn(command);
+            await session.ExecuteCommandAndReturn(command);
 
             CatchCommandPipelineStep.AssertCommandWithReturnContextCaptured<CommandMockReturn>(
                 context => context.Command is CommandWithReturnMock actualCommand && actualCommand.Id == command.Id);
@@ -82,7 +82,7 @@ namespace Hattem.CQRS.Tests
         {
             var session = CreateSession();
 
-            var actual = await session.CommandProcessor.ExecuteAndReturn(command);
+            var actual = await session.ExecuteCommandAndReturn(command);
 
             Assert.Equal(actual.IsOk, expected.IsOk);
             Assert.Equal(actual.Error?.Code, expected.Error?.Code);

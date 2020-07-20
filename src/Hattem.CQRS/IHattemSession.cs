@@ -1,12 +1,17 @@
-﻿using Hattem.CQRS.Commands;
+﻿using System.Threading.Tasks;
+using Hattem.Api;
+using Hattem.CQRS.Commands;
 using Hattem.CQRS.Queries;
 
 namespace Hattem.CQRS
 {
     public interface IHattemSession
     {
-        IQueryProcessor QueryProcessor { get; }
+        Task<ApiResponse<TResult>> ProcessQuery<TResult>(IQuery<TResult> query);
 
-        ICommandProcessor CommandProcessor { get; }
+        Task<ApiResponse<Unit>> ExecuteCommand<TCommand>(TCommand command)
+            where TCommand : ICommand;
+
+        Task<ApiResponse<TReturn>> ExecuteCommandAndReturn<TReturn>(ICommand<TReturn> command);
     }
 }

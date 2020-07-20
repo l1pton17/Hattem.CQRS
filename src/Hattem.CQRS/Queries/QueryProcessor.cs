@@ -8,42 +8,41 @@ namespace Hattem.CQRS.Queries
     /// <summary>
     /// Query processor
     /// </summary>
-    public interface IQueryProcessor
+    public interface IQueryProcessor<in TConnection>
+        where TConnection : IHattemConnection
     {
         /// <summary>
         /// Process a query
         /// </summary>
         /// <typeparam name="TResult"></typeparam>
-        /// <param name="query"></param>
+        /// <param name="connection">Connection</param>
+        /// <param name="query">Query</param>
         /// <returns></returns>
-        Task<ApiResponse<TResult>> Process<TResult>(IQuery<TResult> query);
+        Task<ApiResponse<TResult>> Process<TResult>(TConnection connection, IQuery<TResult> query);
     }
 
-    internal sealed class QueryProcessor<TSession, TConnection> : IQueryProcessor
+    internal sealed class QueryProcessor<TSession, TConnection> : IQueryProcessor<TConnection>
         where TConnection : IHattemConnection
         where TSession : IHattemSession
     {
-        private readonly TConnection _connection;
         private readonly IHandlerProvider<TSession, TConnection> _handlerProvider;
         private readonly IQueryExecutor<TConnection> _executor;
 
         public QueryProcessor(
-            TConnection connection,
             IHandlerProvider<TSession, TConnection> handlerProvider,
             IQueryExecutor<TConnection> executor
         )
         {
             _handlerProvider = handlerProvider ?? throw new ArgumentNullException(nameof(handlerProvider));
             _executor = executor ?? throw new ArgumentNullException(nameof(executor));
-            _connection = connection ?? throw new ArgumentNullException(nameof(connection));
         }
 
-        public Task<ApiResponse<TResult>> Process<TResult>(IQuery<TResult> query)
+        public Task<ApiResponse<TResult>> Process<TResult>(TConnection connection, IQuery<TResult> query)
         {
             var queryHandler = _handlerProvider.GetQueryHandler<TResult>(query.GetType());
 
             var context = QueryExecutionContext.Create(
-                _connection,
+                connection,
                 queryHandler,
                 query);
 

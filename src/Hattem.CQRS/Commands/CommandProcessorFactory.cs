@@ -6,7 +6,7 @@ namespace Hattem.CQRS.Commands
     public interface ICommandProcessorFactory<in TConnection>
         where TConnection : IHattemConnection
     {
-        ICommandProcessor Create(TConnection connection);
+        ICommandProcessor<TConnection> Create();
     }
 
     internal sealed class CommandProcessorFactory<TSession, TConnection> : ICommandProcessorFactory<TConnection>
@@ -25,10 +25,9 @@ namespace Hattem.CQRS.Commands
             _commandExecutor = commandExecutor ?? throw new ArgumentNullException(nameof(commandExecutor));
         }
 
-        public ICommandProcessor Create(TConnection connection)
+        public ICommandProcessor<TConnection> Create()
         {
             return new CommandProcessor<TSession, TConnection>(
-                connection,
                 _handlerProvider,
                 _commandExecutor);
         }

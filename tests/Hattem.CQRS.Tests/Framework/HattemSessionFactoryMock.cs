@@ -12,8 +12,8 @@ namespace Hattem.CQRS.Tests.Framework
     public sealed class HattemSessionFactoryMock : IHattemSessionFactoryMock
     {
         private readonly INotificationPublisher<HattemSessionMock> _notificationPublisher;
-        private readonly ICommandProcessorFactory<HattemSessionMock> _commandProcessorFactory;
-        private readonly IQueryProcessorFactory<HattemSessionMock> _queryProcessorFactory;
+        private readonly ICommandProcessor<HattemSessionMock> _commandProcessor;
+        private readonly IQueryProcessor<HattemSessionMock> _queryProcessor;
 
         public HattemSessionFactoryMock(
             ICommandProcessorFactory<HattemSessionMock> commandProcessorFactory,
@@ -21,17 +21,17 @@ namespace Hattem.CQRS.Tests.Framework
             IQueryProcessorFactory<HattemSessionMock> queryProcessorFactory
         )
         {
-            _commandProcessorFactory = commandProcessorFactory ?? throw new ArgumentNullException(nameof(commandProcessorFactory));
+            _commandProcessor = commandProcessorFactory?.Create() ?? throw new ArgumentNullException(nameof(commandProcessorFactory));
+            _queryProcessor = queryProcessorFactory?.Create() ?? throw new ArgumentNullException(nameof(queryProcessorFactory));
             _notificationPublisher = notificationPublisher ?? throw new ArgumentNullException(nameof(notificationPublisher));
-            _queryProcessorFactory = queryProcessorFactory ?? throw new ArgumentNullException(nameof(queryProcessorFactory));
         }
 
         public HattemSessionMock Create()
         {
             return new HattemSessionMock(
                 _notificationPublisher,
-                _commandProcessorFactory,
-                _queryProcessorFactory);
+                _commandProcessor,
+                _queryProcessor);
         }
     }
 }

@@ -7,22 +7,39 @@ using Hattem.CQRS.Queries;
 
 namespace Hattem.CQRS.Tests.Framework
 {
-    public sealed class HattemSessionMock : IHattemSession, IHattemConnection
+    public readonly struct HattemSessionMock : IHattemSession, IHattemConnection
     {
         private readonly INotificationPublisher<HattemSessionMock> _notificationPublisher;
+        private readonly ICommandProcessor<HattemSessionMock> _commandProcessor;
+        private readonly IQueryProcessor<HattemSessionMock> _queryProcessor;
 
-        public IQueryProcessor QueryProcessor { get; }
-
-        public ICommandProcessor CommandProcessor { get; }
+        public string Id { get; }
 
         public HattemSessionMock(
             INotificationPublisher<HattemSessionMock> notificationPublisher,
-            ICommandProcessorFactory<HattemSessionMock> commandProcessorFactory,
-            IQueryProcessorFactory<HattemSessionMock> queryProcessorFactory)
+            ICommandProcessor<HattemSessionMock> commandProcessor,
+            IQueryProcessor<HattemSessionMock> queryProcessor)
         {
             _notificationPublisher = notificationPublisher ?? throw new ArgumentNullException(nameof(notificationPublisher));
-            CommandProcessor = commandProcessorFactory?.Create(this) ?? throw new ArgumentNullException(nameof(commandProcessorFactory));
-            QueryProcessor = queryProcessorFactory?.Create(this) ?? throw new ArgumentNullException(nameof(queryProcessorFactory));
+            _commandProcessor = commandProcessor ?? throw new ArgumentNullException(nameof(commandProcessor));
+            _queryProcessor = queryProcessor ?? throw new ArgumentNullException(nameof(queryProcessor));
+            Id = Guid.NewGuid().ToString();
+        }
+
+        public Task<ApiResponse<TResult>> ProcessQuery<TResult>(IQuery<TResult> query)
+        {
+            return _queryProcessor.Process(this, query);
+        }
+
+        public Task<ApiResponse<Unit>> ExecuteCommand<TCommand>(TCommand command)
+            where TCommand : ICommand
+        {
+            return _commandProcessor.Execute(this, command);
+        }
+
+        public Task<ApiResponse<TReturn>> ExecuteCommandAndReturn<TReturn>(ICommand<TReturn> command)
+        {
+            return _commandProcessor.ExecuteAndReturn(this, command);
         }
 
         public Task<ApiResponse<Unit>> PublishNotification<T>(T notification)
