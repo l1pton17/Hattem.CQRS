@@ -1,44 +1,54 @@
 ﻿using System;
+using System.Data;
 using Hattem.CQRS.Commands;
 using Hattem.CQRS.Notifications;
 using Hattem.CQRS.Queries;
 
 namespace Hattem.CQRS.Sql
 {
-    public interface ISqlHattemSessionFactory<out TSession> : IHattemSessionFactory<TSession>
-        where TSession : class, IHattemSession, IHattemConnection
+    public interface ISqlHattemSessionFactory : IHattemSessionFactory<SqlHattemSession>
     {
+        SqlHattemSession Create(IsolationLevel isolationLevel);
     }
 
-    public abstract class SqlHattemSessionFactory<TSession> : ISqlHattemSessionFactory<TSession>
-        where TSession : class, IHattemSession, IHattemConnection
+    public sealed class SqlHattemSessionFactory : ISqlHattemSessionFactory
     {
-        private readonly INotificationPublisher<TSession> _notificationPublisher;
-        private readonly ICommandProcessorFactory<TSession> _commandProcessorFactory;
-        private readonly IQueryProcessorFactory<TSession> _queryProcessorFactory;
+        private readonly INotificationPublisher<SqlHattemSession> _notificationPublisher;
+        private readonly ICommandProcessor<SqlHattemSession> _commandProcessor;
+        private readonly IQueryProcessor<SqlHattemSession> _queryProcessor;
+        private readonly IDbConnectionFactory _dbConnectionFactory;
 
-        protected SqlHattemSessionFactory(
-            ICommandProcessorFactory<TSession> commandProcessorFactory,
-            INotificationPublisher<TSession> notificationPublisher,
-            IQueryProcessorFactory<TSession> queryProcessorFactory
+        public SqlHattemSessionFactory(
+            ICommandProcessorFactory<SqlHattemSession> commandProcessorFactory,
+            INotificationPublisher<SqlHattemSession> notificationPublisher,
+            IQueryProcessorFactory<SqlHattemSession> queryProcessorFactory,
+            IDbConnectionFactory dbConnectionFactory
         )
         {
-            _commandProcessorFactory = commandProcessorFactory ?? throw new ArgumentNullException(nameof(commandProcessorFactory));
+            _commandProcessor = commandProcessorFactory?.Create() ?? throw new ArgumentNullException(nameof(commandProcessorFactory));
+            _queryProcessor = queryProcessorFactory?.Create() ?? throw new ArgumentNullException(nameof(queryProcessorFactory));
             _notificationPublisher = notificationPublisher ?? throw new ArgumentNullException(nameof(notificationPublisher));
-            _queryProcessorFactory = queryProcessorFactory ?? throw new ArgumentNullException(nameof(queryProcessorFactory));
+            _dbConnectionFactory = dbConnectionFactory ?? throw new ArgumentNullException(nameof(dbConnectionFactory));
         }
 
-        public TSession Create()
+        public SqlHattemSession Create()
         {
-            return Create(
+            return new SqlHattemSession(
                 _notificationPublisher,
-                _commandProcessorFactory,
-                _queryProcessorFactory);
+                _commandProcessor,
+                _queryProcessor,
+                _dbConnectionFactory,
+                isolationLevel: null);
         }
 
-        protected abstract TSession Create(
-            INotificationPublisher<TSession> notificationPublisher,
-            ICommandProcessorFactory<TSession> commandProcessorFactory,
-            IQueryProcessorFactory<TSession> queryProcessorFactory);
+        public SqlHattemSession Create(IsolationLevel isolationLevel)
+        {
+            return new SqlHattemSession(
+                _notificationPublisher,
+                _commandProcessor,
+                _queryProcessor,
+                _dbConnectionFactory,
+                isolationLevel);
+        }
     }
 }

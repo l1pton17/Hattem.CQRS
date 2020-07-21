@@ -48,6 +48,7 @@
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Errors/ErrorCodes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/NotRequiredErrorNotification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/ErrorNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CFBCCE25-07BA-459A-A8EF-F3845D261CB1/90/DbConnection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/NotificationPublisherTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/NotRequiredErrorNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/TestsBase.cs" root0="FORCE_HIGHLIGHTING" />
@@ -59,7 +60,10 @@
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlDbConnection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlDbTransaction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/IConnectionDbFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CFBCCE25-07BA-459A-A8EF-F3845D261CB1/A6/DbTransaction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7B19537B-F065-4C3F-9F78-85C4099CD3AA/a5/26fb60c0/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C179A8CE-57BE-4DB4-A068-4AA4BE85A158/2D/NpgsqlTransaction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C179A8CE-57BE-4DB4-A068-4AA4BE85A158/14/NpgsqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionFactoryMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Errors/CacheNotFoundError.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryProcessor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -114,9 +118,6 @@
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteAndReturnCommandProcessorTests.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteCommandProcessorTests.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlDbTransaction.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/DependencyInjection/SqlHattemCQRSServiceCollectionExtensions.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSession.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSessionFactory.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryProcessor.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryProcessorFactory.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionFactoryMock.cs" />
@@ -128,7 +129,11 @@
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionContext.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionMock.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/NotificationPublisherTests.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/DependencyInjection/SqlHattemCQRSServiceCollectionExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSessionFactory.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Hattem.CQRS.csproj" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/Hattem.CQRS.Sql.csproj" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSession.cs" />
       </list>
     </option>
   </component>
@@ -141,6 +146,7 @@
     <property name="Rider.SolutionExplorerActivator" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -156,7 +162,8 @@
       <workItem from="1590232075414" duration="5371000" />
       <workItem from="1591031250761" duration="941000" />
       <workItem from="1591732405689" duration="2056000" />
-      <workItem from="1595281461262" duration="2782000" />
+      <workItem from="1595281461262" duration="3181000" />
+      <workItem from="1595284665746" duration="4238000" />
     </task>
     <servers />
   </component>
@@ -169,15 +176,19 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="961" y="184" key="RiderGenerateDialog" timestamp="1595281773845">
+    <state x="961" y="184" key="RiderGenerateDialog" timestamp="1595287028018">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="961" y="184" key="RiderGenerateDialog/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595281773845" />
+    <state x="961" y="184" key="RiderGenerateDialog/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595287028018" />
     <state x="961" y="184" key="RiderGenerateDialog/2560.0.1920.1040/2559.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1589496401136" />
-    <state x="2560" y="0" width="1936" height="1027" maximized="true" key="dock-window-1" timestamp="1595282138777">
+    <state x="781" y="165" key="SettingsEditor" timestamp="1595285003553">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="781" y="165" key="SettingsEditor/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595285003553" />
+    <state x="2560" y="0" width="1936" height="1027" maximized="true" key="dock-window-1" timestamp="1595285007518">
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
-    <state x="2560" y="0" width="1936" height="1027" maximized="true" key="dock-window-1/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595282138777" />
+    <state x="2560" y="0" width="1936" height="1027" maximized="true" key="dock-window-1/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595285007518" />
     <state x="2560" y="27" width="1936" height="1027" maximized="true" key="dock-window-1/2560.0.1920.1040/2559.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1589492879145" />
     <state x="943" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589492870003">
       <screen x="0" y="0" width="2560" height="1040" />

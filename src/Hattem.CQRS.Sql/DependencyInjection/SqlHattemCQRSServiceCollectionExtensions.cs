@@ -1,5 +1,4 @@
-﻿using System.Data.Common;
-using Hattem.CQRS.DependencyInjection;
+﻿using Hattem.CQRS.DependencyInjection;
 
 namespace Hattem.CQRS.Sql.DependencyInjection
 {
@@ -7,6 +6,8 @@ namespace Hattem.CQRS.Sql.DependencyInjection
     {
         public static CQRSBuilder AddSql(this CQRSBuilder builder, IDbConnectionFactory dbConnectionFactory)
         {
+
+
             return builder;
         }
     }
