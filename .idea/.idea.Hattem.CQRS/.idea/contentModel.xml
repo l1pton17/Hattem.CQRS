@@ -95,6 +95,7 @@
             <e p="QueryProcessor.cs" t="Include" />
             <e p="QueryProcessorFactory.cs" t="Include" />
           </e>
+          <e p="Returns.cs" t="Include" />
         </e>
         <e p="Hattem.CQRS.Sql" t="IncludeRecursive">
           <e p="bin" t="ExcludeRecursive" />
@@ -162,12 +163,14 @@
             </e>
             <e p="Queries" t="Include">
               <e p="AnotherQueryHandlerMock.cs" t="Include" />
+              <e p="AnotherStructQueryHandlerMock.cs" t="Include" />
               <e p="IQueryHandlerMock.cs" t="Include" />
               <e p="Pipeline" t="Include">
                 <e p="CatchQueryPipelineStep.cs" t="Include" />
               </e>
               <e p="QueryHandlerMock.cs" t="Include" />
               <e p="QueryMockResult.cs" t="Include" />
+              <e p="StructQueryHandlerMock.cs" t="Include" />
             </e>
           </e>
           <e p="Hattem.CQRS.Tests.csproj" t="IncludeRecursive" />
@@ -180,6 +183,7 @@
             </e>
           </e>
           <e p="QueryProcessorTests.cs" t="Include" />
+          <e p="StructQueryProcessorTests.cs" t="Include" />
           <e p="TestsBase.cs" t="Include" />
         </e>
       </e>

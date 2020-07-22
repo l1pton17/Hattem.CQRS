@@ -2,37 +2,39 @@
 
 namespace Hattem.CQRS.Queries
 {
-    public readonly struct QueryExecutionContext<TConnection, TResult>
+    public readonly struct QueryExecutionContext<TConnection, TQuery, TResult>
         where TConnection : IHattemConnection
+        where TQuery : IQuery<TResult>
     {
-        public IQueryHandler<TConnection, IQuery<TResult>, TResult> Handler { get; }
+        public IQueryHandler<TConnection, TQuery, TResult> Handler { get; }
 
         public TConnection Connection { get; }
 
-        public IQuery<TResult> Query { get; }
+        public TQuery Query { get; }
 
         public QueryExecutionContext(
-            IQueryHandler<TConnection, IQuery<TResult>, TResult> handler,
+            IQueryHandler<TConnection, TQuery, TResult> handler,
             TConnection connection,
-            IQuery<TResult> query
+            in TQuery query
         )
         {
             Handler = handler ?? throw new ArgumentNullException(nameof(handler));
             Connection = connection ?? throw new ArgumentNullException(nameof(connection));
-            Query = query ?? throw new ArgumentNullException(nameof(query));
+            Query = query;
         }
     }
 
     public static class QueryExecutionContext
     {
-        public static QueryExecutionContext<TConnection, TResult> Create<TConnection, TResult>(
+        public static QueryExecutionContext<TConnection, TQuery, TResult> Create<TConnection, TQuery, TResult>(
             TConnection connection,
-            IQueryHandler<TConnection, IQuery<TResult>, TResult> handler,
-            IQuery<TResult> query
+            IQueryHandler<TConnection, TQuery, TResult> handler,
+            TQuery query
         )
             where TConnection : IHattemConnection
+            where TQuery : IQuery<TResult>
         {
-            return new QueryExecutionContext<TConnection, TResult>(handler, connection, query);
+            return new QueryExecutionContext<TConnection, TQuery, TResult>(handler, connection, in query);
         }
     }
 }

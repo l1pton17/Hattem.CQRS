@@ -84,9 +84,9 @@ namespace Hattem.CQRS.Tests
 
             var actual = await session.ProcessQuery(query);
 
-            Assert.Equal(actual.IsOk, expected.IsOk);
-            Assert.Equal(actual.Error?.Code, expected.Error?.Code);
-            Assert.Equal(actual.Data, expected.Data);
+             Assert.Equal(actual.IsOk, expected.IsOk);
+             Assert.Equal(actual.Error?.Code, expected.Error?.Code);
+             Assert.Equal(actual.Data, expected.Data);
         }
     }
 }

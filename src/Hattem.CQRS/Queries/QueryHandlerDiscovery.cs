@@ -10,7 +10,7 @@ namespace Hattem.CQRS.Queries
         IHasHandlerName
         where THandler : class, IQueryHandler<TConnection, TQuery, TResult>
         where TConnection : IHattemConnection
-        where TQuery : IQuery<TResult>
+        where TQuery : class, IQuery<TResult>
     {
         private readonly THandler _handler;
 
@@ -26,6 +26,39 @@ namespace Hattem.CQRS.Queries
         public Task<ApiResponse<TResult>> Handle(TConnection connection, IQuery<TResult> query)
         {
             return _handler.Handle(connection, (TQuery) query);
+        }
+    }
+
+    internal sealed class QueryHandlerWithCacheDiscovery<THandler, TConnection, TQuery, TResult> :
+        IQueryHandler<TConnection, IQuery<TResult>, TResult>,
+        ICachedQueryHandler<IQuery<TResult>>,
+        IHasHandlerName
+        where THandler :
+            class,
+            IQueryHandler<TConnection, TQuery, TResult>,
+            ICachedQueryHandler<TQuery>
+        where TConnection : IHattemConnection
+        where TQuery : class, IQuery<TResult>
+    {
+        private readonly THandler _handler;
+
+        public string Name { get; }
+
+        public QueryHandlerWithCacheDiscovery(THandler handler)
+        {
+            _handler = handler ?? throw new ArgumentNullException(nameof(handler));
+
+            Name = _handler.GetType().GetFriendlyName();
+        }
+
+        public Task<ApiResponse<TResult>> Handle(TConnection connection, IQuery<TResult> query)
+        {
+            return _handler.Handle(connection, (TQuery) query);
+        }
+
+        public QueryCacheKey? GetCacheKeyOrDefault(IQuery<TResult> query)
+        {
+            return _handler.GetCacheKeyOrDefault((TQuery) query);
         }
     }
 }

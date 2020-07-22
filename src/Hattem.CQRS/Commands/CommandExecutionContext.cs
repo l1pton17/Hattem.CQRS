@@ -24,37 +24,39 @@ namespace Hattem.CQRS.Commands
         }
     }
 
-    public struct CommandWithReturnExecutionContext<TConnection, TReturn>
+    public readonly struct CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>
         where TConnection : IHattemConnection
+        where TCommand : ICommand<TReturn>
     {
-        public ICommandHandler<TConnection, ICommand<TReturn>, TReturn> Handler { get; }
+        public ICommandHandler<TConnection, TCommand, TReturn> Handler { get; }
 
         public TConnection Connection { get; }
 
-        public ICommand<TReturn> Command { get; }
+        public TCommand Command { get; }
 
         public CommandWithReturnExecutionContext(
-            ICommandHandler<TConnection, ICommand<TReturn>, TReturn> handler,
+            ICommandHandler<TConnection, TCommand, TReturn> handler,
             TConnection connection,
-            ICommand<TReturn> command
+            TCommand command
         )
         {
             Handler = handler ?? throw new ArgumentNullException(nameof(handler));
-            Command = command ?? throw new ArgumentNullException(nameof(command));
-            Connection = connection;
+            Connection = connection ?? throw new ArgumentNullException(nameof(connection));
+            Command = command;
         }
     }
 
     public static class CommandExecutionContext
     {
-        public static CommandWithReturnExecutionContext<TConnection, TReturn> CreateWithReturn<TConnection, TReturn>(
-            ICommandHandler<TConnection, ICommand<TReturn>, TReturn> handler,
+        public static CommandWithReturnExecutionContext<TConnection, TCommand, TReturn> CreateWithReturn<TConnection, TCommand, TReturn>(
+            ICommandHandler<TConnection, TCommand, TReturn> handler,
             TConnection connection,
-            ICommand<TReturn> command
+            TCommand command
         )
             where TConnection : IHattemConnection
+            where TCommand : ICommand<TReturn>
         {
-            return new CommandWithReturnExecutionContext<TConnection, TReturn>(
+            return new CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>(
                 handler,
                 connection,
                 command);

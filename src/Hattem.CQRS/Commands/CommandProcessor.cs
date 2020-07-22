@@ -29,6 +29,18 @@ namespace Hattem.CQRS.Commands
         /// <param name="command">Command</param>
         /// <returns></returns>
         Task<ApiResponse<TReturn>> ExecuteAndReturn<TReturn>(TConnection connection, ICommand<TReturn> command);
+
+        /// <summary>
+        /// Execute a command with result
+        /// </summary>
+        /// <typeparam name="TReturn">Type of result</typeparam>
+        /// <typeparam name="TCommand"></typeparam>
+        /// <param name="connection">Connection</param>
+        /// <param name="command">Command</param>
+        /// <param name="returns"></param>
+        /// <returns></returns>
+        Task<ApiResponse<TReturn>> ExecuteStructAndReturn<TCommand, TReturn>(TConnection connection, TCommand command, Returns<TReturn> returns)
+            where TCommand : ICommand<TReturn>;
     }
 
     internal sealed class CommandProcessor<TSession, TConnection> : ICommandProcessor<TConnection>
@@ -63,6 +75,19 @@ namespace Hattem.CQRS.Commands
         public Task<ApiResponse<TReturn>> ExecuteAndReturn<TReturn>(TConnection connection, ICommand<TReturn> command)
         {
             var commandHandler = _handlerProvider.GetCommandWithReturnHandler<TReturn>(command.GetType());
+
+            var context = CommandExecutionContext.CreateWithReturn(
+                commandHandler,
+                connection,
+                command);
+
+            return _executor.ExecuteWithReturn(context);
+        }
+
+        public Task<ApiResponse<TReturn>> ExecuteStructAndReturn<TCommand, TReturn>(TConnection connection, TCommand command, Returns<TReturn> returns)
+            where TCommand : ICommand<TReturn>
+        {
+            var commandHandler = _handlerProvider.GetCommandWithReturnHandler<TCommand, TReturn>(command.GetType());
 
             var context = CommandExecutionContext.CreateWithReturn(
                 commandHandler,
