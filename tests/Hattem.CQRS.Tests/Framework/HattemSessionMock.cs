@@ -49,10 +49,10 @@ namespace Hattem.CQRS.Tests.Framework
             return _commandProcessor.ExecuteAndReturn(this, command);
         }
 
-        public Task<ApiResponse<TReturn>> ExecuteStructCommandAndReturn<TCommand, TReturn>(in TCommand command, Returns<TReturn> returns)
+        public Task<ApiResponse<TReturn>> ExecuteStructCommandAndReturn<TCommand, TReturn>(in TCommand command, Returns<TReturn> returnsType)
             where TCommand : struct, ICommand<TReturn>
         {
-            return _commandProcessor.ExecuteAndReturn(this, command);
+            return _commandProcessor.ExecuteStructAndReturn(this, command, returnsType);
         }
 
         public Task<ApiResponse<Unit>> PublishNotification<T>(T notification)

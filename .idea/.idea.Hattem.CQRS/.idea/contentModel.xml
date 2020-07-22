@@ -125,12 +125,14 @@
         <e p="Hattem.CQRS.Tests" t="IncludeRecursive">
           <e p="bin" t="ExcludeRecursive" />
           <e p="ExecuteAndReturnCommandProcessorTests.cs" t="Include" />
+          <e p="ExecuteAndReturnStructCommandProcessorTests.cs" t="Include" />
           <e p="ExecuteCommandProcessorTests.cs" t="Include" />
           <e p="Framework" t="Include">
             <e p="CategoryTraitAttribute.cs" t="Include" />
             <e p="Commands" t="Include">
               <e p="AnotherCommandHandlerMock.cs" t="Include" />
               <e p="AnotherCommandWithReturnHandlerMock.cs" t="Include" />
+              <e p="AnotherStructCommandWithReturnHandlerMock.cs" t="Include" />
               <e p="CommandHandlerMock.cs" t="Include" />
               <e p="CommandMockReturn.cs" t="Include" />
               <e p="CommandWithReturnHandlerMock.cs" t="Include" />
@@ -138,6 +140,7 @@
               <e p="Pipeline" t="Include">
                 <e p="CatchCommandPipelineStep.cs" t="Include" />
               </e>
+              <e p="StructCommandWithReturnHandlerMock.cs" t="Include" />
             </e>
             <e p="Errors" t="Include">
               <e p="ErrorCodes.cs" t="Include" />

@@ -57,7 +57,7 @@ namespace Hattem.CQRS.Tests
 
             var actualResponse = await session.ProcessStructQuery(query, Returns<QueryMockResult>.Type);
 
-            AssertResponseEqual(expectedResponse, actualResponse);
+            Assert.Equal(expectedResponse, actualResponse);
         }
 
         [Fact(DisplayName = "Should return error response from handler")]
@@ -69,7 +69,7 @@ namespace Hattem.CQRS.Tests
 
             var actualResponse = await session.ProcessStructQuery(query, Returns<QueryMockResult>.Type);
 
-            AssertResponseEqual(expectedResponse, actualResponse);
+            Assert.Equal(expectedResponse, actualResponse);
         }
 
         [Fact(DisplayName = "Should return successful response from multiple handler")]
@@ -80,20 +80,13 @@ namespace Hattem.CQRS.Tests
 
             var actualResponse = await session.ProcessStructQuery(query, Returns<QueryMockResult>.Type);
 
-            AssertResponseEqual(expectedResponse, actualResponse);
+            Assert.Equal(expectedResponse, actualResponse);
 
             var (anotherQuery, anotherExpectedResponse) = AnotherStructQueryHandler.GetQuery();
 
             var anotherActualResponse = await session.ProcessStructQuery(anotherQuery, Returns<QueryMockResult>.Type);
 
-            AssertResponseEqual(anotherExpectedResponse, anotherActualResponse);
-        }
-
-        private void AssertResponseEqual<T>(ApiResponse<T> expected, ApiResponse<T> actual)
-        {
-            Assert.Equal(expected.IsOk, actual.IsOk);
-            Assert.Equal(expected.Error?.Code, actual.Error?.Code);
-            Assert.Equal(expected.Data, actual.Data);
+            Assert.Equal(anotherExpectedResponse, anotherActualResponse);
         }
     }
 }

@@ -71,7 +71,9 @@
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/CommandWithReturnHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Returns.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/12187565-528A-4D16-AF6B-862060BBF93A/4b/a769dfab/0200000Epdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/ICommandHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/BC8BB4F7-409D-40CE-82B1-B264A9E2BB85/52/3be21ada/0200000Dpdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/AnotherCommandWithReturnHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Pipeline/CatchNotificationPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/AnotherStructQueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlDbConnection.cs" root0="FORCE_HIGHLIGHTING" />
@@ -89,7 +91,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/8C2DF6FC-C6AB-4619-9A07-A33BB69D5126/33/d7e33805/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/9CD23B5E-3B0C-4F80-A807-33BCFD1D82E1/c2/f84c025c/020004E3.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9CD23B5E-3B0C-4F80-A807-33BCFD1D82E1/23/fa391c12/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteAndReturnStructCommandProcessorTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EBE97773-A052-4C1A-98B5-38B8576D2E15/de/0913aa33/ApiResponse`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/StructCommandWithReturnHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/AnotherStructCommandWithReturnHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/8200AF9D-611B-4EBA-9967-72D7943E9BA8/38/2cfb1586/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EBE97773-A052-4C1A-98B5-38B8576D2E15/fa/bef04e27/Is`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/0E45F297-DFCF-4C95-9760-D69DCE8C0573/16/08b59b46/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
@@ -119,7 +124,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/74E94908-CD26-44FE-AE8D-4D3EDE2C581B/f5/7ecccec3/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/74E94908-CD26-44FE-AE8D-4D3EDE2C581B/bd/8116f49b/0200000Epdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/DB9E7FC8-37C4-4F0D-94D4-4295634532B0/8b/067586df/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/74E8409C-13B1-4EE1-BE5A-2318979D3813/ed/d852cbe0/02000042pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/DB9E7FC8-37C4-4F0D-94D4-4295634532B0/a9/e094811c/0200000Epdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/BCFE66C0-02DC-4319-87D1-5F2018EE77D5/93/405067c9/02000041pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/74E94908-CD26-44FE-AE8D-4D3EDE2C581B/b8/507d8523/02000010pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/94BD513F-05DE-41D8-B404-5450BD4F0CC7/ba/a61f5f1e/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/21FAD37D-B168-4958-B0BF-5F276D9661DE/da/04bd7123/02000024pdb.il" root0="FORCE_HIGHLIGHTING" />
@@ -184,12 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/Pipeline/NotificationExecutor.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Pipeline/CatchNotificationPipelineStep.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionPipelineBuilder.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/TestsBase.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlDbConnection.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/IConnectionDbFactory.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/IDbConnectionFactory.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandProcessorFactory.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteAndReturnCommandProcessorTests.cs" />
@@ -204,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/DependencyInjection/SqlHattemCQRSServiceCollectionExtensions.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSessionFactory.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/Hattem.CQRS.Sql.csproj" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/AnotherQueryHandlerMock.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/CommandWithReturnHandlerMock.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Returns.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/IQuery.cs" />
@@ -216,7 +216,6 @@
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/QueryProcessorTests.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/StructQueryHandlerMock.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/AnotherStructQueryHandlerMock.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/StructQueryProcessorTests.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryExecutionContext.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/Pipeline/Steps/CacheQueryPipelineStep.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSession.cs" />
@@ -224,9 +223,7 @@
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/TestNotification.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/NotificationPublisherTests.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutor.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/IHattemSession.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryProcessor.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionMock.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandExecutionContext.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryHandlerDiscovery.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandHandlerDiscovery.cs" />
@@ -235,6 +232,16 @@
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/CommandExecutor.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/ICommandPipelineStep.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/Steps/InvalidateCacheCommandPipelineStep.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/Pipeline/CatchCommandPipelineStep.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/AnotherQueryHandlerMock.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/AnotherStructCommandWithReturnHandlerMock.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/StructCommandWithReturnHandlerMock.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/StructExecuteAndReturnCommandProcessorTests.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Helpers/AssertHelper.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/StructQueryProcessorTests.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteAndReturnStructCommandProcessorTests.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionMock.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/IHattemSession.cs" />
       </list>
     </option>
   </component>
@@ -266,7 +273,7 @@
       <workItem from="1595281461262" duration="3181000" />
       <workItem from="1595284665746" duration="5213000" />
       <workItem from="1595366491461" duration="6727000" />
-      <workItem from="1595446542641" duration="8777000" />
+      <workItem from="1595446542641" duration="9676000" />
     </task>
     <servers />
   </component>
