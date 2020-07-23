@@ -11,9 +11,10 @@ namespace Hattem.CQRS.Queries.Pipeline
     public interface IQueryExecutor<TConnection>
         where TConnection : IHattemConnection
     {
-        Task<ApiResponse<TResult>> Process<TResult>(
-            QueryExecutionContext<TConnection, TResult> context
-        );
+        Task<ApiResponse<TResult>> Process<TQuery, TResult>(
+            in QueryExecutionContext<TConnection, TQuery, TResult> context
+        )
+            where TQuery : IQuery<TResult>;
     }
 
     internal sealed class QueryExecutor<TConnection> : IQueryExecutor<TConnection>
@@ -26,28 +27,30 @@ namespace Hattem.CQRS.Queries.Pipeline
             _steps = steps.ToImmutableArray();
         }
 
-        public Task<ApiResponse<TResult>> Process<TResult>(QueryExecutionContext<TConnection, TResult> context)
+        public Task<ApiResponse<TResult>> Process<TQuery, TResult>(in QueryExecutionContext<TConnection, TQuery, TResult> context)
+            where TQuery : IQuery<TResult>
         {
-            var pipeline = QueryCache<TResult>.GetPipeline(_steps, context.Query.GetType());
+            var pipeline = QueryCache<TQuery, TResult>.GetPipeline(_steps, context.Query.GetType());
 
             return pipeline(context);
         }
 
-        private static class QueryCache<TResult>
+        private static class QueryCache<TQuery, TResult>
+            where TQuery : IQuery<TResult>
         {
-            private static readonly ConcurrentDictionary<Type, Func<QueryExecutionContext<TConnection, TResult>, Task<ApiResponse<TResult>>>> _cache =
-                new ConcurrentDictionary<Type, Func<QueryExecutionContext<TConnection, TResult>, Task<ApiResponse<TResult>>>>();
+            private static readonly ConcurrentDictionary<Type, Func<QueryExecutionContext<TConnection, TQuery, TResult>, Task<ApiResponse<TResult>>>> _cache =
+                new ConcurrentDictionary<Type, Func<QueryExecutionContext<TConnection, TQuery, TResult>, Task<ApiResponse<TResult>>>>();
 
-            public static Func<QueryExecutionContext<TConnection, TResult>, Task<ApiResponse<TResult>>> GetPipeline(
+            public static Func<QueryExecutionContext<TConnection, TQuery, TResult>, Task<ApiResponse<TResult>>> GetPipeline(
                 ImmutableArray<IQueryPipelineStep> steps,
-                Type commandType
+                Type queryType
             )
             {
-                return _cache.GetOrAdd(commandType, _ => BuildPipeline());
+                return _cache.GetOrAdd(queryType, _ => BuildPipeline());
 
-                Func<QueryExecutionContext<TConnection, TResult>, Task<ApiResponse<TResult>>> BuildPipeline()
+                Func<QueryExecutionContext<TConnection, TQuery, TResult>, Task<ApiResponse<TResult>>> BuildPipeline()
                 {
-                    Func<QueryExecutionContext<TConnection, TResult>, Task<ApiResponse<TResult>>> pipeline = c
+                    Func<QueryExecutionContext<TConnection, TQuery, TResult>, Task<ApiResponse<TResult>>> pipeline = c
                         => c.Handler.Handle(c.Connection, c.Query);
 
                     foreach (var step in steps.Reverse())

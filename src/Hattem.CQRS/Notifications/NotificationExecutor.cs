@@ -22,32 +22,32 @@ namespace Hattem.CQRS.Notifications
 
         public NotificationPublisher(
             IHandlerProvider<TSession, TConnection> handlerProvider,
-            INotificationExecutor<TSession> executor)
+            INotificationExecutor<TSession> executor
+        )
         {
             _handlerProvider = handlerProvider ?? throw new ArgumentNullException(nameof(handlerProvider));
             _executor = executor ?? throw new ArgumentNullException(nameof(executor));
         }
 
-        public Task<ApiResponse<Unit>> Publish<TNotification>(TSession session, TNotification notification)
+        public async Task<ApiResponse<Unit>> Publish<TNotification>(TSession session, TNotification notification)
             where TNotification : INotification
         {
-            async Task<ApiResponse<Unit>> Handle(INotificationHandler<TSession, TNotification> handler)
+            var handlers = _handlerProvider.GetNotificationHandlers<TNotification>();
+
+            for (var i = 0; i < handlers.Length; i++)
             {
+                var handler = handlers[i];
                 var context = NotificationExecutionContext.Create(session, handler, notification);
 
-                var notifyResponse = await _executor.Handle(context).Catch().Unwrap();
+                var notifyResponse = await _executor.Handle(context).Catch().Unwrap().ConfigureAwait(false);
 
-                if (notifyResponse.HasErrors && !handler.Options.IsRequired)
+                if (notifyResponse.HasErrors && handler.Options.IsRequired)
                 {
-                    return ApiResponse.Ok();
+                    return notifyResponse;
                 }
-
-                return notifyResponse;
             }
 
-            return _handlerProvider
-                .GetNotificationHandlers<TNotification>()
-                .ForEach(handler => Handle(handler));
+            return ApiResponse.Ok();
         }
     }
 }

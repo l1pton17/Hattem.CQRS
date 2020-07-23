@@ -159,19 +159,19 @@ namespace Hattem.CQRS.Sql
             {
                 if (_transaction != null && !_transactionState.HasValue)
                 {
-                    await RollbackAsync();
+                    await RollbackAsync().ConfigureAwait(false);
                 }
             }
             finally
             {
                 if (_transaction != null)
                 {
-                    await _transaction.DisposeAsync();
+                    await _transaction.DisposeAsync().ConfigureAwait(false);
                 }
 
                 if (_connection != null)
                 {
-                    await _connection.DisposeAsync();
+                    await _connection.DisposeAsync().ConfigureAwait(false);
                 }
             }
         }

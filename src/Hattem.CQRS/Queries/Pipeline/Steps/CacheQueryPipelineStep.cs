@@ -14,13 +14,14 @@ namespace Hattem.CQRS.Queries.Pipeline.Steps
             _cacheStorage = cacheStorage ?? throw new ArgumentNullException(nameof(cacheStorage));
         }
 
-        public Task<ApiResponse<TResult>> Process<TConnection, TResult>(
-            Func<QueryExecutionContext<TConnection, TResult>, Task<ApiResponse<TResult>>> next,
-            QueryExecutionContext<TConnection, TResult> context
+        public Task<ApiResponse<TResult>> Process<TConnection, TQuery, TResult>(
+            Func<QueryExecutionContext<TConnection, TQuery, TResult>, Task<ApiResponse<TResult>>> next,
+            QueryExecutionContext<TConnection, TQuery, TResult> context
         )
             where TConnection : IHattemConnection
+            where TQuery : IQuery<TResult>
         {
-            if (context.Handler is ICachedQueryHandler<IQuery<TResult>> cachedQueryHandler)
+            if (context.Handler is ICachedQueryHandler<TQuery> cachedQueryHandler)
             {
                 var cacheKeyOption = cachedQueryHandler.GetCacheKeyOrDefault(context.Query);
 
@@ -40,7 +41,7 @@ namespace Hattem.CQRS.Queries.Pipeline.Steps
                                         cacheKey.CacheKey,
                                         cacheKey.CacheRegion,
                                         result,
-                                        cacheKey.Expiration))); 
+                                        cacheKey.Expiration)));
                 }
             }
 

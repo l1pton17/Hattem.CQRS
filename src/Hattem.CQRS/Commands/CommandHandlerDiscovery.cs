@@ -11,7 +11,7 @@ namespace Hattem.CQRS.Commands
         IHasHandlerName
         where THandler : class, ICommandHandler<TConnection, TCommand, TReturn>
         where TConnection : IHattemConnection
-        where TCommand : ICommand<TReturn>
+        where TCommand : class, ICommand<TReturn>
     {
         private readonly THandler _handler;
 
@@ -35,11 +35,11 @@ namespace Hattem.CQRS.Commands
         IInvalidateCacheCommandHandler<ICommand<TReturn>>,
         IHasHandlerName
         where THandler :
-            class,
-            ICommandHandler<TConnection, TCommand, TReturn>,
-            IInvalidateCacheCommandHandler<TCommand>
+        class,
+        ICommandHandler<TConnection, TCommand, TReturn>,
+        IInvalidateCacheCommandHandler<TCommand>
         where TConnection : IHattemConnection
-        where TCommand : ICommand<TReturn>
+        where TCommand : class, ICommand<TReturn>
     {
         private readonly THandler _handler;
 

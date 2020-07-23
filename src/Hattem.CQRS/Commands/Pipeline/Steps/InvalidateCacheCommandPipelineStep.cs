@@ -26,23 +26,25 @@ namespace Hattem.CQRS.Commands.Pipeline.Steps
                 .Then(_ => Invalidate(context.Handler, context.Command));
         }
 
-        public Task<ApiResponse<TReturn>> ExecuteWithReturn<TConnection, TReturn>(
-            Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>> next,
-            CommandWithReturnExecutionContext<TConnection, TReturn> context
+        public Task<ApiResponse<TReturn>> ExecuteWithReturn<TConnection, TCommand, TReturn>(
+            Func<CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>, Task<ApiResponse<TReturn>>> next,
+            CommandWithReturnExecutionContext<TConnection, TCommand, TReturn> context
         )
             where TConnection : IHattemConnection
+            where TCommand : ICommand<TReturn>
         {
             return InvalidateWithReturn(context.Handler, context.Command)
                 .Then(_ => next(context))
                 .Filter(_ => InvalidateWithReturn(context.Handler, context.Command));
         }
 
-        private Task<ApiResponse<Unit>> InvalidateWithReturn<TConnection, TReturn>(
-            ICommandHandler<TConnection, ICommand<TReturn>, TReturn> handler,
-            ICommand<TReturn> command)
+        private Task<ApiResponse<Unit>> InvalidateWithReturn<TConnection, TCommand, TReturn>(
+            ICommandHandler<TConnection, TCommand, TReturn> handler,
+            TCommand command)
             where TConnection : IHattemConnection
+            where TCommand : ICommand<TReturn>
         {
-            if (handler is IInvalidateCacheCommandHandler<ICommand<TReturn>> invalidateCacheCommandHandler)
+            if (handler is IInvalidateCacheCommandHandler<TCommand> invalidateCacheCommandHandler)
             {
                 return _cacheStorage
                     .Invalidate(invalidateCacheCommandHandler.GetCacheKeys(command))

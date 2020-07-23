@@ -23,13 +23,14 @@ namespace Hattem.CQRS.Tests.Framework.Commands.Pipeline
             return next(context);
         }
 
-        public Task<ApiResponse<TReturn>> ExecuteWithReturn<TConnection, TReturn>(
-            Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>> next,
-            CommandWithReturnExecutionContext<TConnection, TReturn> context
+        public Task<ApiResponse<TReturn>> ExecuteWithReturn<TConnection, TCommand, TReturn>(
+            Func<CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>, Task<ApiResponse<TReturn>>> next,
+            CommandWithReturnExecutionContext<TConnection, TCommand, TReturn> context
         )
             where TConnection : IHattemConnection
+            where TCommand : ICommand<TReturn>
         {
-            CommandWithReturnCapturedContextStorage<TConnection, TReturn>.CapturedContext.Add(context);
+            CommandWithReturnCapturedContextStorage<TConnection, TCommand, TReturn>.CapturedContext.Add(context);
 
             return next(context);
         }
@@ -42,9 +43,17 @@ namespace Hattem.CQRS.Tests.Framework.Commands.Pipeline
             Assert.True(contains);
         }
 
-        public static void AssertCommandWithReturnContextCaptured<TReturn>(Func<CommandWithReturnExecutionContext<HattemSessionMock, TReturn>, bool> predicate)
+        public static void AssertCommandWithReturnContextCaptured<TReturn>(Func<CommandWithReturnExecutionContext<HattemSessionMock, ICommand<TReturn>, TReturn>, bool> predicate)
         {
-            var contains = CommandWithReturnCapturedContextStorage<HattemSessionMock, TReturn>.CapturedContext.Any(predicate);
+            var contains = CommandWithReturnCapturedContextStorage<HattemSessionMock, ICommand<TReturn>, TReturn>.CapturedContext.Any(predicate);
+
+            Assert.True(contains);
+        }
+
+        public static void AssertCommandWithReturnContextCaptured<TCommand, TReturn>(Func<CommandWithReturnExecutionContext<HattemSessionMock, TCommand, TReturn>, bool> predicate)
+            where TCommand : ICommand<TReturn>
+        {
+            var contains = CommandWithReturnCapturedContextStorage<HattemSessionMock, TCommand, TReturn>.CapturedContext.Any(predicate);
 
             Assert.True(contains);
         }
@@ -57,11 +66,12 @@ namespace Hattem.CQRS.Tests.Framework.Commands.Pipeline
                 new ConcurrentBag<CommandExecutionContext<TConnection, TCommand>>();
         }
 
-        private static class CommandWithReturnCapturedContextStorage<TConnection, TReturn>
+        private static class CommandWithReturnCapturedContextStorage<TConnection, TCommand, TReturn>
             where TConnection : IHattemConnection
+            where TCommand : ICommand<TReturn>
         {
-            public static ConcurrentBag<CommandWithReturnExecutionContext<TConnection, TReturn>> CapturedContext { get; } =
-                new ConcurrentBag<CommandWithReturnExecutionContext<TConnection, TReturn>>();
+            public static ConcurrentBag<CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>> CapturedContext { get; } =
+                new ConcurrentBag<CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>>();
         }
     }
 }

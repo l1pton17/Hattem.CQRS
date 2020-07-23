@@ -5,7 +5,7 @@
     /// Query
     /// </summary>
     /// <typeparam name="TResult"></typeparam>
-    public interface IQuery<out TResult>
+    public interface IQuery<TResult>
     {
     }
 }

@@ -16,9 +16,10 @@ namespace Hattem.CQRS.Commands.Pipeline
         )
             where TCommand : ICommand;
 
-        Task<ApiResponse<TReturn>> ExecuteWithReturn<TReturn>(
-            CommandWithReturnExecutionContext<TConnection, TReturn> context
-        );
+        Task<ApiResponse<TReturn>> ExecuteWithReturn<TCommand, TReturn>(
+            CommandWithReturnExecutionContext<TConnection, TCommand, TReturn> context
+        )
+            where TCommand : ICommand<TReturn>;
     }
 
     internal sealed class CommandExecutor<TConnection> : ICommandExecutor<TConnection>
@@ -41,30 +42,32 @@ namespace Hattem.CQRS.Commands.Pipeline
             return ExecuteCache<TCommand>.Pipeline(context);
         }
 
-        public Task<ApiResponse<TReturn>> ExecuteWithReturn<TReturn>(
-            CommandWithReturnExecutionContext<TConnection, TReturn> context
+        public Task<ApiResponse<TReturn>> ExecuteWithReturn<TCommand, TReturn>(
+            CommandWithReturnExecutionContext<TConnection, TCommand, TReturn> context
         )
+            where TCommand : ICommand<TReturn>
         {
-            var pipeline = ExecuteWithReturnCache<TReturn>.GetPipeline(_steps, context.Command.GetType());
+            var pipeline = ExecuteWithReturnCache<TCommand, TReturn>.GetPipeline(_steps, context.Command.GetType());
 
             return pipeline(context);
         }
 
-        private static class ExecuteWithReturnCache<TReturn>
+        private static class ExecuteWithReturnCache<TCommand, TReturn>
+            where TCommand : ICommand<TReturn>
         {
-            private static readonly ConcurrentDictionary<Type, Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>>> _cache =
-                new ConcurrentDictionary<Type, Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>>>();
+            private static readonly ConcurrentDictionary<Type, Func<CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>, Task<ApiResponse<TReturn>>>> _cache =
+                new ConcurrentDictionary<Type, Func<CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>, Task<ApiResponse<TReturn>>>>();
 
-            public static Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>> GetPipeline(
+            public static Func<CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>, Task<ApiResponse<TReturn>>> GetPipeline(
                 ImmutableArray<ICommandPipelineStep> steps,
                 Type commandType
             )
             {
                 return _cache.GetOrAdd(commandType, _ => BuildPipeline());
 
-                Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>> BuildPipeline()
+                Func<CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>, Task<ApiResponse<TReturn>>> BuildPipeline()
                 {
-                    Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>> pipeline = c
+                    Func<CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>, Task<ApiResponse<TReturn>>> pipeline = c
                         => c.Handler.Execute(c.Connection, c.Command);
 
                     foreach (var step in steps.Reverse())

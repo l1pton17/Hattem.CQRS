@@ -12,9 +12,10 @@ namespace Hattem.CQRS.Commands.Pipeline
             where TConnection : IHattemConnection
             where TCommand : ICommand;
 
-        Task<ApiResponse<TReturn>> ExecuteWithReturn<TConnection, TReturn>(
-            Func<CommandWithReturnExecutionContext<TConnection, TReturn>, Task<ApiResponse<TReturn>>> next,
-            CommandWithReturnExecutionContext<TConnection, TReturn> context)
-            where TConnection : IHattemConnection;
+        Task<ApiResponse<TReturn>> ExecuteWithReturn<TConnection, TCommand, TReturn>(
+            Func<CommandWithReturnExecutionContext<TConnection, TCommand, TReturn>, Task<ApiResponse<TReturn>>> next,
+            CommandWithReturnExecutionContext<TConnection, TCommand, TReturn> context)
+            where TConnection : IHattemConnection
+            where TCommand : ICommand<TReturn>;
     }
 }

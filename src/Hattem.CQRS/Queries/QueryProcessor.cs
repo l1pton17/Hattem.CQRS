@@ -19,6 +19,18 @@ namespace Hattem.CQRS.Queries
         /// <param name="query">Query</param>
         /// <returns></returns>
         Task<ApiResponse<TResult>> Process<TResult>(TConnection connection, IQuery<TResult> query);
+
+        /// <summary>
+        /// Process a struct query
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TQuery"></typeparam>
+        /// <param name="connection">Connection</param>
+        /// <param name="query">Query</param>
+        /// <param name="returns"></param>
+        /// <returns></returns>
+        Task<ApiResponse<TResult>> ProcessStruct<TQuery, TResult>(TConnection connection, in TQuery query, Returns<TResult> returns)
+            where TQuery : struct, IQuery<TResult>;
     }
 
     internal sealed class QueryProcessor<TSession, TConnection> : IQueryProcessor<TConnection>
@@ -40,6 +52,19 @@ namespace Hattem.CQRS.Queries
         public Task<ApiResponse<TResult>> Process<TResult>(TConnection connection, IQuery<TResult> query)
         {
             var queryHandler = _handlerProvider.GetQueryHandler<TResult>(query.GetType());
+
+            var context = QueryExecutionContext.Create(
+                connection,
+                queryHandler,
+                query);
+
+            return _executor.Process(context);
+        }
+
+        public Task<ApiResponse<TResult>> ProcessStruct<TQuery, TResult>(TConnection connection, in TQuery query, Returns<TResult> _)
+            where TQuery : struct, IQuery<TResult>
+        {
+            var queryHandler = _handlerProvider.GetQueryHandler<TQuery, TResult>();
 
             var context = QueryExecutionContext.Create(
                 connection,

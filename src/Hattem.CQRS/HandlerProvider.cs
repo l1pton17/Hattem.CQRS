@@ -10,19 +10,25 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Hattem.CQRS
 {
-    public interface IHandlerProvider<in TSession, in TConnection>
+    public interface IHandlerProvider<TSession, TConnection>
         where TSession : IHattemSession
         where TConnection : IHattemConnection
     {
-        IEnumerable<INotificationHandler<TSession, TNotification>> GetNotificationHandlers<TNotification>()
+        ImmutableArray<INotificationHandler<TSession, TNotification>> GetNotificationHandlers<TNotification>()
             where TNotification : INotification;
 
         ICommandHandler<TConnection, TCommand> GetCommandHandler<TCommand>()
             where TCommand : ICommand;
 
+        ICommandHandler<TConnection, TCommand, TReturn> GetCommandWithReturnHandler<TCommand, TReturn>(Type commandType)
+            where TCommand : ICommand<TReturn>;
+
         ICommandHandler<TConnection, ICommand<TReturn>, TReturn> GetCommandWithReturnHandler<TReturn>(Type commandType);
 
         IQueryHandler<TConnection, IQuery<TResult>, TResult> GetQueryHandler<TResult>(Type queryType);
+
+        IQueryHandler<TConnection, TQuery, TResult> GetQueryHandler<TQuery, TResult>()
+            where TQuery : struct, IQuery<TResult>;
     }
 
     internal sealed class HandlerProvider<TSession, TConnection> : IHandlerProvider<TSession, TConnection>
@@ -32,6 +38,7 @@ namespace Hattem.CQRS
         private readonly IServiceProvider _serviceProvider;
         private readonly ConcurrentDictionary<Type, object> _commandHandlers;
         private readonly ConcurrentDictionary<Type, object> _commandWithReturnHandlers;
+        private readonly ConcurrentDictionary<Type, object> _structQueryHandlers;
         private readonly ConcurrentDictionary<Type, object> _queryHandlers;
         private readonly ConcurrentDictionary<Type, IEnumerable<object>> _notificationHandlers;
 
@@ -40,11 +47,12 @@ namespace Hattem.CQRS
             _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
             _commandHandlers = new ConcurrentDictionary<Type, object>();
             _commandWithReturnHandlers = new ConcurrentDictionary<Type, object>();
+            _structQueryHandlers = new ConcurrentDictionary<Type, object>();
             _queryHandlers = new ConcurrentDictionary<Type, object>();
             _notificationHandlers = new ConcurrentDictionary<Type, IEnumerable<object>>();
         }
 
-        public IEnumerable<INotificationHandler<TSession, TNotification>> GetNotificationHandlers<TNotification>()
+        public ImmutableArray<INotificationHandler<TSession, TNotification>> GetNotificationHandlers<TNotification>()
             where TNotification : INotification
         {
             var key = typeof(TNotification);
@@ -65,7 +73,7 @@ namespace Hattem.CQRS
                         .ToImmutableArray());
             }
 
-            return (IEnumerable<INotificationHandler<TSession, TNotification>>) handlers;
+            return (ImmutableArray<INotificationHandler<TSession, TNotification>>) handlers;
         }
 
         public ICommandHandler<TConnection, TCommand> GetCommandHandler<TCommand>()
@@ -89,6 +97,30 @@ namespace Hattem.CQRS
             }
 
             return (ICommandHandler<TConnection, TCommand>) handler;
+        }
+
+        public ICommandHandler<TConnection, TCommand, TReturn> GetCommandWithReturnHandler<TCommand, TReturn>(Type commandType)
+            where TCommand : ICommand<TReturn>
+        {
+            var key = typeof(TCommand);
+
+            if (!_structQueryHandlers.TryGetValue(key, out var handler))
+            {
+                handler = _structQueryHandlers.GetOrAdd(
+                    key,
+                    _ =>
+                    {
+                        var commandHandlerType = typeof(ICommandHandler<,,>)
+                            .MakeGenericType(
+                                typeof(TConnection),
+                                typeof(TCommand),
+                                typeof(TReturn));
+
+                        return _serviceProvider.GetRequiredService(commandHandlerType);
+                    });
+            }
+
+            return (ICommandHandler<TConnection, TCommand, TReturn>) handler;
         }
 
         public ICommandHandler<TConnection, ICommand<TReturn>, TReturn> GetCommandWithReturnHandler<TReturn>(Type commandType)
@@ -130,11 +162,35 @@ namespace Hattem.CQRS
                                 commandType,
                                 typeof(TReturn));
 
-                        return Activator.CreateInstance(discoveryType, commandHandler);
+                        return ActivatorUtilities.CreateInstance(_serviceProvider, discoveryType, commandHandler);
                     });
             }
 
             return (ICommandHandler<TConnection, ICommand<TReturn>, TReturn>) handler;
+        }
+
+        public IQueryHandler<TConnection, TQuery, TResult> GetQueryHandler<TQuery, TResult>()
+            where TQuery : struct, IQuery<TResult>
+        {
+            var key = typeof(TQuery);
+
+            if (!_structQueryHandlers.TryGetValue(key, out var handler))
+            {
+                handler = _structQueryHandlers.GetOrAdd(
+                    key,
+                    _ =>
+                    {
+                        var commandHandlerType = typeof(IQueryHandler<,,>)
+                            .MakeGenericType(
+                                typeof(TConnection),
+                                typeof(TQuery),
+                                typeof(TResult));
+
+                        return _serviceProvider.GetRequiredService(commandHandlerType);
+                    });
+            }
+
+            return (IQueryHandler<TConnection, TQuery, TResult>) handler;
         }
 
         public IQueryHandler<TConnection, IQuery<TResult>, TResult> GetQueryHandler<TResult>(Type queryType)
@@ -147,7 +203,24 @@ namespace Hattem.CQRS
                     key,
                     _ =>
                     {
-                        var discoveryType = typeof(QueryHandlerDiscovery<,,,>)
+                        var queryHandler = _serviceProvider.GetRequiredService(
+                            typeof(IQueryHandler<,,>)
+                                .MakeGenericType(
+                                    typeof(TConnection),
+                                    queryType,
+                                    typeof(TResult)
+                                ));
+
+                        var hasCacheImplementation = queryHandler
+                            .GetType()
+                            .GetInterfaces()
+                            .Any(v => v == typeof(ICachedQueryHandler<>).MakeGenericType(queryType));
+
+                        var handlerType = hasCacheImplementation
+                            ? typeof(QueryHandlerWithCacheDiscovery<,,,>)
+                            : typeof(QueryHandlerDiscovery<,,,>);
+
+                        var discoveryType = handlerType
                             .MakeGenericType(
                                 typeof(IQueryHandler<,,>)
                                     .MakeGenericType(
@@ -159,7 +232,7 @@ namespace Hattem.CQRS
                                 queryType,
                                 typeof(TResult));
 
-                        return ActivatorUtilities.CreateInstance(_serviceProvider, discoveryType);
+                        return ActivatorUtilities.CreateInstance(_serviceProvider, discoveryType, queryHandler);
                     });
             }
 

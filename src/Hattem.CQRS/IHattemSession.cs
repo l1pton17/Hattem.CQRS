@@ -9,9 +9,15 @@ namespace Hattem.CQRS
     {
         Task<ApiResponse<TResult>> ProcessQuery<TResult>(IQuery<TResult> query);
 
+        Task<ApiResponse<TResult>> ProcessStructQuery<TQuery, TResult>(in TQuery query, Returns<TResult> returnsType)
+            where TQuery : struct, IQuery<TResult>;
+
         Task<ApiResponse<Unit>> ExecuteCommand<TCommand>(TCommand command)
             where TCommand : ICommand;
 
         Task<ApiResponse<TReturn>> ExecuteCommandAndReturn<TReturn>(ICommand<TReturn> command);
+
+        Task<ApiResponse<TReturn>> ExecuteStructCommandAndReturn<TCommand, TReturn>(in TCommand command, Returns<TReturn> returnsType)
+            where TCommand : struct, ICommand<TReturn>;
     }
 }

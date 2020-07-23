@@ -6,34 +6,34 @@ using Hattem.CQRS.Queries;
 
 namespace Hattem.CQRS.Tests.Framework.Queries
 {
-    public sealed class AnotherQueryMock : IQuery<QueryMockResult>
+    public readonly struct StructQueryMock : IQuery<QueryMockResult>
     {
         public Guid Id { get; }
 
-        private AnotherQueryMock(Guid id)
+        private StructQueryMock(Guid id)
         {
             Id = id;
         }
 
-        public static AnotherQueryMock New()
+        public static StructQueryMock New()
         {
-            return new AnotherQueryMock(Guid.NewGuid());
+            return new StructQueryMock(Guid.NewGuid());
         }
     }
 
-    public sealed class AnotherQueryHandler : IQueryHandlerMock<AnotherQueryMock, QueryMockResult>
+    public sealed class StructQueryHandlerMock : IQueryHandlerMock<StructQueryMock, QueryMockResult>
     {
         private static readonly ConcurrentDictionary<Guid, ApiResponse<QueryMockResult>> _results =
             new ConcurrentDictionary<Guid, ApiResponse<QueryMockResult>>();
 
-        public Task<ApiResponse<QueryMockResult>> Handle(HattemSessionMock connection, AnotherQueryMock query)
+        public Task<ApiResponse<QueryMockResult>> Handle(HattemSessionMock connection, StructQueryMock query)
         {
             var result = _results[query.Id];
 
             return Task.FromResult(result);
         }
 
-        public static (AnotherQueryMock Query, ApiResponse<QueryMockResult> Response) GetQuery()
+        public static (StructQueryMock Query, ApiResponse<QueryMockResult> Response) GetQuery()
         {
             var result = QueryMockResult.New();
             var query = GetQuery(result);
@@ -41,18 +41,18 @@ namespace Hattem.CQRS.Tests.Framework.Queries
             return (query, ApiResponse.Ok(result));
         }
 
-        public static AnotherQueryMock GetQuery(QueryMockResult result)
+        public static StructQueryMock GetQuery(ApiResponse<QueryMockResult> response)
         {
-            return GetQuery(ApiResponse.Ok(result));
-        }
-
-        public static AnotherQueryMock GetQuery(ApiResponse<QueryMockResult> response)
-        {
-            var query = AnotherQueryMock.New();
+            var query = StructQueryMock.New();
 
             _results.AddOrUpdate(query.Id, response, (_, __) => response);
 
             return query;
+        }
+
+        private static StructQueryMock GetQuery(QueryMockResult result)
+        {
+            return GetQuery(ApiResponse.Ok(result));
         }
     }
 }

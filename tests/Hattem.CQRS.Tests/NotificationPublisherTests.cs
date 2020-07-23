@@ -15,18 +15,18 @@ namespace Hattem.CQRS.Tests
         public async Task Publish_PassNotificationToContext()
         {
             var session = CreateSession();
-            var notification = new TestNotification();
+            var notification = TestNotification.New();
 
             await session.PublishNotification(notification);
 
-            CatchNotificationPipelineStep.AssertNotificationContextCaptured<TestNotification>(context => context.Notification == notification);
+            CatchNotificationPipelineStep.AssertNotificationContextCaptured<TestNotification>(context => context.Notification.Equals(notification));
         }
 
         [Fact(DisplayName = "Should pass handler to context")]
         public async Task Publish_PassHandlerToContext()
         {
             var session = CreateSession();
-            var notification = new TestNotification();
+            var notification = TestNotification.New();
 
             await session.PublishNotification(notification);
 
@@ -37,7 +37,7 @@ namespace Hattem.CQRS.Tests
         public async Task Publish_PassSessionToContext()
         {
             var session = CreateSession();
-            var notification = new TestNotification();
+            var notification = TestNotification.New();
 
             await session.PublishNotification(notification);
 
@@ -48,7 +48,7 @@ namespace Hattem.CQRS.Tests
         public async Task Publish_ExecuteHandlers()
         {
             var session = CreateSession();
-            var notification = new TestNotification();
+            var notification = TestNotification.New();
 
             await session.PublishNotification(notification);
 

@@ -6,34 +6,34 @@ using Hattem.CQRS.Commands;
 
 namespace Hattem.CQRS.Tests.Framework.Commands
 {
-    public sealed class CommandWithReturnMock : ICommand<CommandMockReturn>
+    public readonly struct StructCommandWithReturnMock : ICommand<CommandMockReturn>
     {
         public Guid Id { get; }
 
-        private CommandWithReturnMock(Guid id)
+        private StructCommandWithReturnMock(Guid id)
         {
             Id = id;
         }
 
-        public static CommandWithReturnMock New()
+        public static StructCommandWithReturnMock New()
         {
-            return new CommandWithReturnMock(Guid.NewGuid());
+            return new StructCommandWithReturnMock(Guid.NewGuid());
         }
     }
 
-    public sealed class CommandWithReturnHandlerMock : ICommandHandlerMock<CommandWithReturnMock, CommandMockReturn>
+    public sealed class StructCommandWithReturnHandlerMock : ICommandHandlerMock<StructCommandWithReturnMock, CommandMockReturn>
     {
         private static readonly ConcurrentDictionary<Guid, ApiResponse<CommandMockReturn>> _returns =
             new ConcurrentDictionary<Guid, ApiResponse<CommandMockReturn>>();
 
-        public Task<ApiResponse<CommandMockReturn>> Execute(HattemSessionMock connection, CommandWithReturnMock command)
+        public Task<ApiResponse<CommandMockReturn>> Execute(HattemSessionMock connection, StructCommandWithReturnMock command)
         {
             var result = _returns[command.Id];
 
             return Task.FromResult(result);
         }
 
-        public static (CommandWithReturnMock Command, ApiResponse<CommandMockReturn> Response) GetCommand()
+        public static (StructCommandWithReturnMock Command, ApiResponse<CommandMockReturn> Response) GetCommand()
         {
             var result = CommandMockReturn.New();
             var command = GetCommand(result);
@@ -41,16 +41,16 @@ namespace Hattem.CQRS.Tests.Framework.Commands
             return (command, ApiResponse.Ok(result));
         }
 
-        public static CommandWithReturnMock GetCommand(ApiResponse<CommandMockReturn> response)
+        public static StructCommandWithReturnMock GetCommand(ApiResponse<CommandMockReturn> response)
         {
-            var command = CommandWithReturnMock.New();
+            var command = StructCommandWithReturnMock.New();
 
             _returns.AddOrUpdate(command.Id, response, (_, __) => response);
 
             return command;
         }
 
-        private static CommandWithReturnMock GetCommand(CommandMockReturn result)
+        private static StructCommandWithReturnMock GetCommand(CommandMockReturn result)
         {
             return GetCommand(ApiResponse.Ok(result));
         }
