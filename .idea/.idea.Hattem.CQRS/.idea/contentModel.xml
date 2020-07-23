@@ -103,10 +103,7 @@
             <e p="SqlHattemCQRSServiceCollectionExtensions.cs" t="Include" />
           </e>
           <e p="Hattem.CQRS.Sql.csproj" t="IncludeRecursive" />
-          <e p="IConnectionDbFactory.cs" t="Include" />
           <e p="IDbConnectionFactory.cs" t="Include" />
-          <e p="ISqlDbConnection.cs" t="Include" />
-          <e p="ISqlDbTransaction.cs" t="Include" />
           <e p="obj" t="ExcludeRecursive">
             <e p="Release" t="Include">
               <e p="netcoreapp3.1" t="Include">

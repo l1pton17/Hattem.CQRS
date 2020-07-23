@@ -61,6 +61,12 @@ namespace Hattem.CQRS.Sql
             return _queryProcessor.Process(this, query);
         }
 
+        public Task<ApiResponse<TResult>> ProcessStructQuery<TQuery, TResult>(in TQuery query, Returns<TResult> returnsType)
+            where TQuery : struct, IQuery<TResult>
+        {
+            return _queryProcessor.ProcessStruct(this, query, returnsType);
+        }
+
         public Task<ApiResponse<Unit>> ExecuteCommand<TCommand>(TCommand command)
             where TCommand : ICommand
         {
@@ -70,6 +76,12 @@ namespace Hattem.CQRS.Sql
         public Task<ApiResponse<TReturn>> ExecuteCommandAndReturn<TReturn>(ICommand<TReturn> command)
         {
             return _commandProcessor.ExecuteAndReturn(this, command);
+        }
+
+        public Task<ApiResponse<TReturn>> ExecuteStructCommandAndReturn<TCommand, TReturn>(in TCommand command, Returns<TReturn> returnsType)
+            where TCommand : struct, ICommand<TReturn>
+        {
+            return _commandProcessor.ExecuteStructAndReturn(this, command, returnsType);
         }
 
         public void Commit()
