@@ -10,13 +10,30 @@ using Hattem.CQRS.Queries;
 
 namespace Hattem.CQRS.Sql
 {
-    public sealed class SqlHattemSession :
+    public interface ISqlHattemSession :
         IHattemSession,
         IHattemConnection,
 #if !NET461 && !NETSTANDARD2_0
         IAsyncDisposable,
 #endif
         IDisposable
+    {
+        DbConnection Connection { get; }
+
+        Task<DbConnection> GetConnectionAsync(CancellationToken cancellationToken = default);
+
+        void Commit();
+
+        void Rollback();
+
+#if !NETSTANDARD2_0
+        Task CommitAsync(CancellationToken cancellationToken = default);
+
+        Task RollbackAsync(CancellationToken cancellationToken = default);
+#endif
+    }
+
+    public sealed class SqlHattemSession : ISqlHattemSession
     {
         private readonly INotificationPublisher<SqlHattemSession> _notificationPublisher;
         private readonly ICommandProcessor<SqlHattemSession> _commandProcessor;
@@ -25,8 +42,11 @@ namespace Hattem.CQRS.Sql
         private readonly IsolationLevel? _isolationLevel;
 
         private TransactionState? _transactionState;
+        private Task<DbConnection> _connectionTask;
         private DbConnection _connection;
         private DbTransaction _transaction;
+
+        public DbConnection Connection => _connection ??= SetupConnectionCore();
 
         public SqlHattemSession(
             INotificationPublisher<SqlHattemSession> notificationPublisher,
@@ -43,11 +63,14 @@ namespace Hattem.CQRS.Sql
             _isolationLevel = isolationLevel;
         }
 
-        public ValueTask<DbConnection> GetConnectionAsync(CancellationToken cancellationToken = default)
+        public Task<DbConnection> GetConnectionAsync(CancellationToken cancellationToken = default)
         {
-            return _connection != null
-                ? new ValueTask<DbConnection>(_connection)
-                : new ValueTask<DbConnection>(GetConnectionCoreAsync(cancellationToken));
+            if (_connection != null)
+            {
+                return _connectionTask ??= Task.FromResult(_connection);
+            }
+
+            return SetupConnectionCoreAsync(cancellationToken);
         }
 
         public Task<ApiResponse<Unit>> PublishNotification<T>(T notification)
@@ -86,51 +109,35 @@ namespace Hattem.CQRS.Sql
 
         public void Commit()
         {
-            if (_transaction == null)
-            {
-                SetTransactionState(TransactionState.Commit);
-            }
-
-            _transaction.Commit();
-
             SetTransactionState(TransactionState.Commit);
+
+            _transaction?.Commit();
         }
 
         public void Rollback()
         {
-            if (_transaction == null)
-            {
-                SetTransactionState(TransactionState.Rollback);
-            }
-
-            _transaction.Rollback();
-
             SetTransactionState(TransactionState.Rollback);
+
+            _transaction?.Rollback();
         }
 
 #if !NETSTANDARD2_0
-        public ValueTask CommitAsync(CancellationToken cancellationToken = default)
+        public Task CommitAsync(CancellationToken cancellationToken = default)
         {
-            if (_transaction == null)
-            {
-                SetTransactionState(TransactionState.Commit);
+            SetTransactionState(TransactionState.Commit);
 
-                return default;
-            }
-
-            return new ValueTask(CommitCoreAsync(cancellationToken));
+            return _transaction == null
+                ? Task.CompletedTask
+                : _transaction.CommitAsync(cancellationToken);
         }
 
-        public ValueTask RollbackAsync(CancellationToken cancellationToken = default)
+        public Task RollbackAsync(CancellationToken cancellationToken = default)
         {
-            if (_transaction == null)
-            {
-                SetTransactionState(TransactionState.Rollback);
+            SetTransactionState(TransactionState.Rollback);
 
-                return default;
-            }
-
-            return new ValueTask(RollbackCoreAsync(cancellationToken));
+            return _transaction == null
+                ? Task.CompletedTask
+                : _transaction.RollbackAsync(cancellationToken);
         }
 #endif
 
@@ -150,8 +157,6 @@ namespace Hattem.CQRS.Sql
                 _transaction?.Dispose();
                 _connection?.Dispose();
             }
-
-            _connection?.Dispose();
         }
 
 #if !NETSTANDARD2_0
@@ -189,9 +194,27 @@ namespace Hattem.CQRS.Sql
         }
 #endif
 
-        private async Task<DbConnection> GetConnectionCoreAsync(CancellationToken cancellationToken = default)
+        private DbConnection SetupConnectionCore()
         {
             _connection = _dbConnectionFactory.Create();
+
+            _connection.Open();
+
+            if (_isolationLevel.HasValue)
+            {
+                _transaction = _connection.BeginTransaction(_isolationLevel.Value);
+            }
+
+            return _connection;
+        }
+
+        private async Task<DbConnection> SetupConnectionCoreAsync(CancellationToken cancellationToken = default)
+        {
+            _connection = _dbConnectionFactory.Create();
+
+            await _connection
+                .OpenAsync(cancellationToken)
+                .ConfigureAwait(false);
 
             if (_isolationLevel.HasValue)
             {
@@ -203,34 +226,10 @@ namespace Hattem.CQRS.Sql
                 _transaction = _connection
                     .BeginTransaction(_isolationLevel.Value);
 #endif
-
-                _connection = _transaction.Connection;
             }
-
-            await _connection
-                .OpenAsync(cancellationToken)
-                .ConfigureAwait(false);
 
             return _connection;
         }
-
-#if !NETSTANDARD2_0
-        private async Task RollbackCoreAsync(CancellationToken cancellationToken = default)
-        {
-            await _transaction
-                .RollbackAsync(cancellationToken)
-                .ConfigureAwait(false);
-        }
-
-        private async Task CommitCoreAsync(CancellationToken cancellationToken = default)
-        {
-            await _transaction
-                .CommitAsync(cancellationToken)
-                .ConfigureAwait(false);
-
-            SetTransactionState(TransactionState.Commit);
-        }
-#endif
 
         private void SetTransactionState(TransactionState value)
         {

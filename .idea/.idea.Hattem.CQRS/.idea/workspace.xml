@@ -21,78 +21,76 @@
     <expand />
     <select />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JSON File" />
+      </list>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/OrderTrackerNotification.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/9f/690aab80/0200001Apdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/INotification.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8168F93D-32E5-4E6D-8C84-C9DD2423FB5D/fb/31a10e88/NotificationHandlerOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Extensions/HandlerExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionPipelineBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationHandlerOptions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/70/b47a44b2/02000015pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Notifications/Events/TestItems/TestItemAddedStructDomainEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/OrderTrackerNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/INotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Notifications/Handlers/TestItems/CatchAddedTestItemsWhenAdded.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/DependencyInjection/CQRSServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/95/cadb4a2a/02000016pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/DependencyInjection/CQRSBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/TestNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8168F93D-32E5-4E6D-8C84-C9DD2423FB5D/57/9c13dfa8/INotification.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/Pipeline/INotificationPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Notifications/Pipeline/NotificationExecutor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/bc/99884b8f/02000012pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSessionFactory.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/45/11c81169/02000011pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Notifications/Events/TestItems/TestItemAddedDomainEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/Extensions/SqlHattemSessionFactoryExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSession.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/INotificationHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/3e/0e680b57/02000019pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/910FB8A9-EC91-468A-8E26-F8B56EDA19FF/c4/cebba102/02000019pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Generators/TestItemGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Extensions/ApiResponseExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9CD23B5E-3B0C-4F80-A807-33BCFD1D82E1/3C0/Comparer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Errors/ErrorCodes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/NotRequiredErrorNotification.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4BEF2DBA-D20A-4004-A174-0B863AFE6B55/01/55b5f266/02000019pdb.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/ClassCQRSTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/CategoryTraitAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/AddTestItemTableCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Comparers/TestItemComparer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/ErrorNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4BEF2DBA-D20A-4004-A174-0B863AFE6B55/82/129d467c/02000012pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4BEF2DBA-D20A-4004-A174-0B863AFE6B55/05/c4b90006/02000011pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Queries/TestItems/GetTestItemStructQuery.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/TestsBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Services/LocalDbConnectionFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6DADD22E-0197-42CE-80AA-EFEF99855BE0/bc/31b0d013/CancellationToken.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/EditTestItemStructCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/NotificationPublisherTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Queries/TestItems/GetTestItemQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Handlers/NotRequiredErrorNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4BEF2DBA-D20A-4004-A174-0B863AFE6B55/ea/1face870/02000016pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/AnotherQueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/AddTestItemCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/TestsBase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4BEF2DBA-D20A-4004-A174-0B863AFE6B55/80/9e61a6c7/02000015pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/AddTestItemStructCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteAndReturnCommandProcessorTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/QueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/IQueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/Pipeline/CatchQueryPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/EditTestItemCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C179A8CE-57BE-4DB4-A068-4AA4BE85A158/17/NpgsqlConnector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteCommandProcessorTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/QueryMockResult.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/Pipeline/CatchCommandPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/QueryProcessorTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/12187565-528A-4D16-AF6B-862060BBF93A/02/7534e177/02000008pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/CommandWithReturnHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Models/TestItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C179A8CE-57BE-4DB4-A068-4AA4BE85A158/C/ConnectorPool.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Returns.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/12187565-528A-4D16-AF6B-862060BBF93A/4b/a769dfab/0200000Epdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/ICommandHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/BC8BB4F7-409D-40CE-82B1-B264A9E2BB85/52/3be21ada/0200000Dpdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/AnotherCommandWithReturnHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Pipeline/CatchNotificationPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/AnotherStructQueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlDbConnection.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/StructQueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlDbTransaction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/StructQueryProcessorTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/IConnectionDbFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/6750BA61-92A9-4A39-A1C2-F8E32C1D401C/e2/3ebadbd6/0200000Apdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/BC8BB4F7-409D-40CE-82B1-B264A9E2BB85/a6/ae5f2d6d/02000012pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C179A8CE-57BE-4DB4-A068-4AA4BE85A158/2D/NpgsqlTransaction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/BC8BB4F7-409D-40CE-82B1-B264A9E2BB85/a6/de95b5aa/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C179A8CE-57BE-4DB4-A068-4AA4BE85A158/14/NpgsqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/BB90497C-CDF7-42DA-8BA3-DBD3C964C350/3c/93c2f040/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/8C2DF6FC-C6AB-4619-9A07-A33BB69D5126/b4/762f4dc3/0200000Dpdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/8C2DF6FC-C6AB-4619-9A07-A33BB69D5126/33/d7e33805/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/9CD23B5E-3B0C-4F80-A807-33BCFD1D82E1/c2/f84c025c/020004E3.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9CD23B5E-3B0C-4F80-A807-33BCFD1D82E1/23/fa391c12/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteAndReturnStructCommandProcessorTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EBE97773-A052-4C1A-98B5-38B8576D2E15/de/0913aa33/ApiResponse`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/StructCommandWithReturnHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/AnotherStructCommandWithReturnHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/8200AF9D-611B-4EBA-9967-72D7943E9BA8/38/2cfb1586/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
@@ -108,19 +106,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/25985C0A-5994-48A3-B5C1-954605DADA01/e0/ebd35cd8/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/IDbConnectionFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/234512FE-AC14-4810-9EEE-FEB65EA2CB28/5e/108b97d1/02000010pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/HandlerProvider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/ICacheStorage.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/IHattemSession.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/234512FE-AC14-4810-9EEE-FEB65EA2CB28/5e/3bf616b2/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/234512FE-AC14-4810-9EEE-FEB65EA2CB28/1b/1fffcc35/0200000Fpdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/IHattemConnection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/234512FE-AC14-4810-9EEE-FEB65EA2CB28/b1/b93a4d91/0200000Epdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/IHattemSessionFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/234512FE-AC14-4810-9EEE-FEB65EA2CB28/13/d5ad8c90/0200000Dpdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/DE7EE603-CC09-44D3-B8AC-A0D9A1DFF10B/cd/288f9493/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/DE7EE603-CC09-44D3-B8AC-A0D9A1DFF10B/10/730c5318/0200000Dpdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/DE7EE603-CC09-44D3-B8AC-A0D9A1DFF10B/13/9be07d22/0200000Epdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CFBCCE25-07BA-459A-A8EF-F3845D261CB1/90/DbConnection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/74E94908-CD26-44FE-AE8D-4D3EDE2C581B/f5/7ecccec3/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/74E94908-CD26-44FE-AE8D-4D3EDE2C581B/bd/8116f49b/0200000Epdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/DB9E7FC8-37C4-4F0D-94D4-4295634532B0/8b/067586df/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
@@ -138,52 +130,103 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/78362218-F619-449E-9656-B25D2392E7C3/61/340f5a98/02000017pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/BAA9CD95-CA7A-45E9-B5E6-25F3788F7279/f1/689d2efd/02000004pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/3132626F-54CF-450B-9549-395B190F553E/56/d12d64a1/02000010pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CFBCCE25-07BA-459A-A8EF-F3845D261CB1/A6/DbTransaction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7B19537B-F065-4C3F-9F78-85C4099CD3AA/a5/26fb60c0/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/3132626F-54CF-450B-9549-395B190F553E/b1/b56c9e9c/0200000Fpdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/BAA9CD95-CA7A-45E9-B5E6-25F3788F7279/ff/b4e301f3/0200000Fpdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/3132626F-54CF-450B-9549-395B190F553E/6f/7ef2e95b/0200000Epdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/78362218-F619-449E-9656-B25D2392E7C3/9e/57a7d750/0200000Dpdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/BAA9CD95-CA7A-45E9-B5E6-25F3788F7279/d7/ea2bfdaf/02000024pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/43348272-F3CB-49A5-BC23-AB25714C6EFC/b9/0e36aa58/02000023pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/78362218-F619-449E-9656-B25D2392E7C3/8c/4a9cab36/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/397AE5BD-6C25-49EF-B25A-4FF4AE0E0A38/1b/5f07d3f9/0200000Fpdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/43348272-F3CB-49A5-BC23-AB25714C6EFC/bf/dcb581ee/02000024pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/929D8A3E-8957-45B5-8218-09ED9EA901EF/e1/123de494/0200000Epdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionFactoryMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/929D8A3E-8957-45B5-8218-09ED9EA901EF/44/cd93edad/02000006pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Errors/CacheNotFoundError.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlNotificationHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/397AE5BD-6C25-49EF-B25A-4FF4AE0E0A38/9c/3041470e/0200002Bpdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlQueryHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/397AE5BD-6C25-49EF-B25A-4FF4AE0E0A38/eb/f3e47fe2/02000024pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EBE97773-A052-4C1A-98B5-38B8576D2E15/09/2c44a19d/ApiResponseExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A0E9E72C-C013-4B3D-AE4C-85E09D0EBC9A/04/a6da11de/ServiceCollectionDescriptorExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/397AE5BD-6C25-49EF-B25A-4FF4AE0E0A38/f7/01c8cd14/02000025pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4B645A00-EF59-415E-9A48-F848C27489F2/79/441c3e94/0200001Cpdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/397AE5BD-6C25-49EF-B25A-4FF4AE0E0A38/44/1e9ebac4/02000021pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/dd/b2446b4c/0200000Dpdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/397AE5BD-6C25-49EF-B25A-4FF4AE0E0A38/e7/de1653ca/02000022pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/39/70f3ee61/0200001Cpdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/948960E5-74F8-4055-AC10-7EB05257A5F0/7e/3216ba3b/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/8804F98D-8710-4EA9-AC3F-BCE235AC54DF/6d/eb06fef9/02000019pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/db/62cb68f1/0200001Bpdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/9f/690aab80/0200001Apdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/70/b47a44b2/02000015pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/95/cadb4a2a/02000016pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/bc/99884b8f/02000012pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/45/11c81169/02000011pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/3e/0e680b57/02000019pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/910FB8A9-EC91-468A-8E26-F8B56EDA19FF/c4/cebba102/02000019pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4BEF2DBA-D20A-4004-A174-0B863AFE6B55/01/55b5f266/02000019pdb.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4BEF2DBA-D20A-4004-A174-0B863AFE6B55/82/129d467c/02000012pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4BEF2DBA-D20A-4004-A174-0B863AFE6B55/05/c4b90006/02000011pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/CategoryTraitAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4BEF2DBA-D20A-4004-A174-0B863AFE6B55/ea/1face870/02000016pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/AnotherQueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4BEF2DBA-D20A-4004-A174-0B863AFE6B55/80/9e61a6c7/02000015pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/QueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/IQueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/Pipeline/CatchQueryPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/QueryMockResult.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/Pipeline/CatchCommandPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/12187565-528A-4D16-AF6B-862060BBF93A/02/7534e177/02000008pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/CommandHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/CommandWithReturnHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/12187565-528A-4D16-AF6B-862060BBF93A/4b/a769dfab/0200000Epdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/ICommandHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/AnotherCommandWithReturnHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/Pipeline/CatchNotificationPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/AnotherCommandHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/AnotherStructQueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/StructQueryHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/StructQueryProcessorTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C179A8CE-57BE-4DB4-A068-4AA4BE85A158/2D/NpgsqlTransaction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C179A8CE-57BE-4DB4-A068-4AA4BE85A158/14/NpgsqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EBE97773-A052-4C1A-98B5-38B8576D2E15/de/0913aa33/ApiResponse`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/HandlerProvider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/ICacheStorage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/IHattemSession.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/IHattemConnection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/IHattemSessionFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CFBCCE25-07BA-459A-A8EF-F3845D261CB1/90/DbConnection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CFBCCE25-07BA-459A-A8EF-F3845D261CB1/A6/DbTransaction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7B19537B-F065-4C3F-9F78-85C4099CD3AA/a5/26fb60c0/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/TestCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/78362218-F619-449E-9656-B25D2392E7C3/9e/57a7d750/0200000Dpdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/TestFixture.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/78362218-F619-449E-9656-B25D2392E7C3/8c/4a9cab36/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/DropTestItemTableCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionFactoryMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Errors/CacheNotFoundError.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EBE97773-A052-4C1A-98B5-38B8576D2E15/36/a1c01c95/ErrorPredicate.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryProcessor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/TestNotification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/IQuery.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/397AE5BD-6C25-49EF-B25A-4FF4AE0E0A38/eb/f3e47fe2/02000024pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EBE97773-A052-4C1A-98B5-38B8576D2E15/09/2c44a19d/ApiResponseExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/ICachedQueryHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/IQueryHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryHandlerDiscovery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/397AE5BD-6C25-49EF-B25A-4FF4AE0E0A38/f7/01c8cd14/02000025pdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/4B645A00-EF59-415E-9A48-F848C27489F2/79/441c3e94/0200001Cpdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryExecutionPipelineBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Errors/TestError.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/Pipeline/QueryExecutor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/397AE5BD-6C25-49EF-B25A-4FF4AE0E0A38/44/1e9ebac4/02000021pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryProcessorFactory.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/dd/b2446b4c/0200000Dpdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/397AE5BD-6C25-49EF-B25A-4FF4AE0E0A38/e7/de1653ca/02000022pdb.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/ICommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/Pipeline/IQueryPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Queries/Pipeline/Steps/CacheQueryPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/39/70f3ee61/0200001Cpdb.il" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/948960E5-74F8-4055-AC10-7EB05257A5F0/7e/3216ba3b/02000007pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandProcessorFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/8804F98D-8710-4EA9-AC3F-BCE235AC54DF/6d/eb06fef9/02000019pdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandHandlerDiscovery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/ErrorNotification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandExecutionPipelineBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandProcessor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/654E4993-5520-4450-89DA-1D686F4CE995/db/62cb68f1/0200001Bpdb.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/Steps/InvalidateCacheCommandPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/StructCQRSTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Extensions/TypeExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/CommandExecutor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/ICommandPipelineStep.cs" root0="FORCE_HIGHLIGHTING" />
@@ -191,45 +234,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/IDbConnectionFactory.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandProcessorFactory.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteAndReturnCommandProcessorTests.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteCommandProcessorTests.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlDbTransaction.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryProcessorFactory.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionFactoryMock.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/IHattemSessionFactory.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/DependencyInjection/CQRSBuilder.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/INotificationHandler.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionContext.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/DependencyInjection/SqlHattemCQRSServiceCollectionExtensions.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSessionFactory.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/Hattem.CQRS.Sql.csproj" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/CommandWithReturnHandlerMock.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Returns.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/IQuery.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Hattem.CQRS.csproj" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/Pipeline/IQueryPipelineStep.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/Pipeline/QueryExecutor.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/Pipeline/CatchQueryPipelineStep.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/QueryHandlerMock.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/QueryProcessorTests.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/StructQueryHandlerMock.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Queries/AnotherStructQueryHandlerMock.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryExecutionContext.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/Pipeline/Steps/CacheQueryPipelineStep.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSession.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/OrderTrackerNotification.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Notifications/TestNotification.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/NotificationPublisherTests.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutor.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryProcessor.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandExecutionContext.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryHandlerDiscovery.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandHandlerDiscovery.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/HandlerProvider.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandProcessor.cs" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/CommandExecutor.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/ICommandPipelineStep.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/Pipeline/Steps/InvalidateCacheCommandPipelineStep.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/Pipeline/CatchCommandPipelineStep.cs" />
@@ -242,6 +246,45 @@
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteAndReturnStructCommandProcessorTests.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/HattemSessionMock.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/IHattemSession.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/UnitTest1.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/Extensions/SqlHattemSessionFactoryExtensions.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/Tables/AddTestTableCommand.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Models/TestItem.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/AddTestTableCommand.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/ClassTests.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/CategoryTraitAttribute.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Generators/TestItemGenerator.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Extensions/ApiResponseExtensions.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Comparers/TestItemComparer.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/DependencyInjection/SqlHattemCQRSServiceCollectionExtensions.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSessionFactory.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS/DependencyInjection/CQRSBuilder.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlCommandHandler.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlQueryHandler.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/ISqlNotificationHandler.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/EditTestItemCommand.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Queries/TestItems/GetTestItemQuery.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/EditTestItemStructCommand.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Queries/TestItems/GetTestItemStructQuery.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/AddTestItemTableCommand.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSession.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Notifications/Events/TestItems/TestItemAddedDomainEvent.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/AddTestItemCommand.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Notifications/Events/TestItems/TestItemAddedStructDomainEvent.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/AddTestItemStructCommand.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Notifications/Handlers/TestItems/CatchAddedTestItemsWhenAdded.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Services/LocalDbConnectionFactory.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/xunit.runner.json" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/DatabaseFixture.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/TestsFixture.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Hattem.CQRS.Tests.csproj" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Hattem.CQRS.Sql.Tests.csproj" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/DropTestItemTableCommand.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/TestFixture.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/TestCollection.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/TestsBase.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/ClassCQRSTests.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/StructCQRSTests.cs" />
       </list>
     </option>
   </component>
@@ -254,6 +297,7 @@
     <property name="Rider.SolutionExplorerActivator" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
   </component>
   <component name="SvnConfiguration">
@@ -274,6 +318,9 @@
       <workItem from="1595284665746" duration="5213000" />
       <workItem from="1595366491461" duration="6727000" />
       <workItem from="1595446542641" duration="9676000" />
+      <workItem from="1595463680981" duration="2720000" />
+      <workItem from="1597172646814" duration="120000" />
+      <workItem from="1597174360160" duration="9884000" />
     </task>
     <servers />
   </component>
@@ -286,28 +333,36 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="961" y="184" key="RiderGenerateDialog" timestamp="1595449263056">
+    <state x="872" y="252" key="Rider.ProjectTemplateDialog.Size" timestamp="1595465244810">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="961" y="184" key="RiderGenerateDialog/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595449263056" />
+    <state x="872" y="252" key="Rider.ProjectTemplateDialog.Size/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595465244810" />
+    <state x="961" y="184" key="RiderGenerateDialog" timestamp="1597186884240">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="961" y="184" key="RiderGenerateDialog/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1597186884240" />
     <state x="961" y="184" key="RiderGenerateDialog/2560.0.1920.1040/2559.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1589496401136" />
     <state x="781" y="165" key="SettingsEditor" timestamp="1595285003553">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="781" y="165" key="SettingsEditor/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595285003553" />
-    <state x="2560" y="0" width="1892" height="1027" maximized="true" key="dock-window-1" timestamp="1595446856514">
+    <state x="2587" y="122" width="1909" height="805" maximized="true" key="dock-window-1" timestamp="1597187055165">
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
-    <state x="2560" y="0" width="1892" height="1027" maximized="true" key="dock-window-1/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595446856514" />
+    <state x="2587" y="122" width="1909" height="805" maximized="true" key="dock-window-1/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1597187055165" />
     <state x="2560" y="27" width="1936" height="1027" maximized="true" key="dock-window-1/2560.0.1920.1040/2559.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1589492879145" />
-    <state x="958" y="253" width="644" height="534" key="find.popup" timestamp="1595454610730">
+    <state x="958" y="253" width="657" height="534" key="find.popup" timestamp="1597185094034">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="958" y="253" width="644" height="534" key="find.popup/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595454610730" />
-    <state x="943" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595455080763">
+    <state x="958" y="253" width="657" height="534" key="find.popup/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1597185094034" />
+    <state x="936" y="240" key="run.anything.popup" timestamp="1595466032114">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="943" y="225" width="672" height="678" key="search.everywhere.popup/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595455080763" />
+    <state x="936" y="240" key="run.anything.popup/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595466032114" />
+    <state x="943" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597187002425">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="943" y="225" width="672" height="678" key="search.everywhere.popup/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1597187002425" />
     <state x="943" y="225" width="672" height="678" key="search.everywhere.popup/2560.0.1920.1040/2559.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1589492870003" />
   </component>
   <component name="XDebuggerManager">

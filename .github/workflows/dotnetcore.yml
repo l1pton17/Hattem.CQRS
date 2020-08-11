@@ -7,19 +7,34 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  container-job:
     runs-on: ubuntu-latest
+    container: mcr.microsoft.com/dotnet/core/sdk:3.1
+
+    services:
+      postgres:
+        image: postgres:11
+        env:
+          POSTGRES_PASSWORD: test
+          POSTGRES_USER: test
+          POSTGRES_DB: test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.301
+    - name: Check out repository code
+      uses: actions/checkout@v2
+
     - name: Install dependencies
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      env:
+        POSTGRES_HOST: postgres

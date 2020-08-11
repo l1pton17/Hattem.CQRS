@@ -116,11 +116,6 @@ namespace Hattem.CQRS.DependencyInjection
 
         public void Done()
         {
-            if (CommandExecutionPipelineBuilder == null)
-            {
-                CommandExecutionPipelineBuilder = new CommandExecutionPipelineBuilder(Services);
-            }
-
             Services.TryAddSingleton<ICacheStorage, NoOpCacheStorage>();
         }
 
