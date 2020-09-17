@@ -60,8 +60,7 @@ namespace Hattem.CQRS.Tests
             await session.ExecuteCommandAndReturn(command);
 
             CatchCommandPipelineStep.AssertCommandWithReturnContextCaptured<CommandMockReturn>(
-                context => context.Handler is CommandHandlerDiscovery<ICommandHandler<HattemSessionMock, CommandWithReturnMock, CommandMockReturn>, HattemSessionMock, CommandWithReturnMock, CommandMockReturn> handlerDiscovery
-                    && handlerDiscovery.Name == typeof(CommandWithReturnHandlerMock).GetFriendlyName());
+                context => context.Handler is CommandHandlerAdapter<ICommandHandler<HattemSessionMock, CommandWithReturnMock, CommandMockReturn>, HattemSessionMock, CommandWithReturnMock, CommandMockReturn>);
         }
 
         [Fact(DisplayName = "Should execute pipeline and pass command in context")]

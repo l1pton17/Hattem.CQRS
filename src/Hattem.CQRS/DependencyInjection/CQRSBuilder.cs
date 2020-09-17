@@ -4,30 +4,31 @@ using System.Linq;
 using System.Reflection;
 using Hattem.CQRS.Commands;
 using Hattem.CQRS.Commands.Pipeline;
-using Hattem.CQRS.Commands.Pipeline.Steps;
+using Hattem.CQRS.Containers;
+using Hattem.CQRS.Extensions;
 using Hattem.CQRS.Notifications;
 using Hattem.CQRS.Notifications.Pipeline;
 using Hattem.CQRS.Queries;
 using Hattem.CQRS.Queries.Pipeline;
-using Hattem.CQRS.Queries.Pipeline.Steps;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Hattem.CQRS.DependencyInjection
 {
     public sealed class CQRSBuilder
     {
-        internal CommandExecutionPipelineBuilder CommandExecutionPipelineBuilder { get; private set; }
-        
-        internal QueryExecutionPipelineBuilder QueryExecutionPipelineBuilder { get; private set; }
+        internal CommandExecutionPipelineBuilder CommandExecutionPipelineBuilder { get; }
 
-        internal NotificationExecutionPipelineBuilder NotificationExecutionPipelineBuilder { get; private set; }
+        internal QueryExecutionPipelineBuilder QueryExecutionPipelineBuilder { get; }
 
-        public IServiceCollection Services { get; }
+        internal NotificationExecutionPipelineBuilder NotificationExecutionPipelineBuilder { get; }
 
-        public CQRSBuilder(IServiceCollection services)
-        { 
-            Services = services ?? throw new ArgumentNullException(nameof(services));
+        public IContainerConfigurator Container { get; }
+
+        public CQRSBuilder(IContainerConfigurator container)
+        {
+            Container = container ?? throw new ArgumentNullException(nameof(container));
+            CommandExecutionPipelineBuilder = new CommandExecutionPipelineBuilder(container);
+            QueryExecutionPipelineBuilder = new QueryExecutionPipelineBuilder(container);
+            NotificationExecutionPipelineBuilder = new NotificationExecutionPipelineBuilder(container);
         }
 
         /// <summary>
@@ -47,16 +48,6 @@ namespace Hattem.CQRS.DependencyInjection
             return this;
         }
 
-        public CQRSBuilder UseCacheStorage<TCacheStorage>()
-            where TCacheStorage : class, ICacheStorage
-        {
-            Services.AddSingleton<ICacheStorage, TCacheStorage>();
-            Services.AddSingleton<ICommandPipelineStep, InvalidateCacheCommandPipelineStep>();
-            Services.AddSingleton<IQueryPipelineStep, CacheQueryPipelineStep>();
-
-            return this;
-        }
-
         public CQRSBuilder UseConnection<TISessionFactory, TSessionFactory, TSession>()
             where TSession : IHattemSession, IHattemConnection
             where TISessionFactory : class, IHattemSessionFactory<TSession>
@@ -71,26 +62,24 @@ namespace Hattem.CQRS.DependencyInjection
             where TISessionFactory : class, IHattemSessionFactory<TSession>
             where TSessionFactory : class, TISessionFactory
         {
-            Services.AddSingleton<TISessionFactory, TSessionFactory>();
-            Services.AddSingleton<IHattemSessionFactory<TSession>, TSessionFactory>();
-            Services.AddSingleton<IHandlerProvider<TSession, TConnection>, HandlerProvider<TSession, TConnection>>();
+            Container.AddSingleton<TISessionFactory, TSessionFactory>();
+            Container.AddSingleton<IHattemSessionFactory<TSession>, TSessionFactory>();
+            Container.AddSingleton<IHandlerProvider<TSession, TConnection>, HandlerProvider<TSession, TConnection>>();
 
-            Services.AddSingleton<INotificationExecutor<TSession>, NotificationExecutor<TSession>>();
-            Services.AddSingleton<INotificationPublisher<TSession>, NotificationPublisher<TSession, TConnection>>();
+            Container.AddSingleton<INotificationExecutor<TSession>, NotificationExecutor<TSession>>();
+            Container.AddSingleton<INotificationPublisher<TSession>, NotificationPublisher<TSession, TConnection>>();
 
-            Services.AddSingleton<ICommandExecutor<TConnection>, CommandExecutor<TConnection>>();
-            Services.AddSingleton<ICommandProcessorFactory<TConnection>, CommandProcessorFactory<TSession, TConnection>>();
+            Container.AddSingleton<ICommandExecutor<TConnection>, CommandExecutor<TConnection>>();
+            Container.AddSingleton<ICommandProcessorFactory<TConnection>, CommandProcessorFactory<TSession, TConnection>>();
 
-            Services.AddSingleton<IQueryExecutor<TConnection>, QueryExecutor<TConnection>>();
-            Services.AddSingleton<IQueryProcessorFactory<TConnection>, QueryProcessorFactory<TSession, TConnection>>();
+            Container.AddSingleton<IQueryExecutor<TConnection>, QueryExecutor<TConnection>>();
+            Container.AddSingleton<IQueryProcessorFactory<TConnection>, QueryProcessorFactory<TSession, TConnection>>();
 
             return this;
         }
 
         public CQRSBuilder ConfigureNotificationExecution(Action<NotificationExecutionPipelineBuilder> configure)
         {
-            NotificationExecutionPipelineBuilder = new NotificationExecutionPipelineBuilder(Services);
-
             configure(NotificationExecutionPipelineBuilder);
 
             return this;
@@ -98,8 +87,6 @@ namespace Hattem.CQRS.DependencyInjection
 
         public CQRSBuilder ConfigureCommandExecution(Action<CommandExecutionPipelineBuilder> configure)
         {
-            CommandExecutionPipelineBuilder = new CommandExecutionPipelineBuilder(Services);
-
             configure(CommandExecutionPipelineBuilder);
 
             return this;
@@ -107,16 +94,21 @@ namespace Hattem.CQRS.DependencyInjection
 
         public CQRSBuilder ConfigureQueryExecution(Action<QueryExecutionPipelineBuilder> configure)
         {
-            QueryExecutionPipelineBuilder = new QueryExecutionPipelineBuilder(Services);
-
             configure(QueryExecutionPipelineBuilder);
 
             return this;
         }
 
-        public void Done()
+        public void Build()
         {
-            Services.TryAddSingleton<ICacheStorage, NoOpCacheStorage>();
+            CommandExecutionPipelineBuilder.Build();
+            QueryExecutionPipelineBuilder.Build();
+            NotificationExecutionPipelineBuilder.Build();
+
+            if (!Container.HasComponent<IHandlerAdapterFactory>())
+            {
+                Container.AddSingleton<IHandlerAdapterFactory, HandlerAdapterFactory>();
+            }
         }
 
         private void MapGenericInterfaces(
@@ -134,11 +126,11 @@ namespace Hattem.CQRS.DependencyInjection
                     .GetInterfaces()
                     .Where(
                         v => v.IsGenericType
-                         && v.GetGenericTypeDefinition() == interfaceType);
+                            && v.GetGenericTypeDefinition() == interfaceType);
 
                 foreach (var interfaceDefinition in interfaceDefinitions)
                 {
-                    Services.AddSingleton(interfaceDefinition, type);
+                    Container.AddSingleton(interfaceDefinition, type);
                 }
             }
         }

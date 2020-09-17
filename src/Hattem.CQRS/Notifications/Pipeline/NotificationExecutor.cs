@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Hattem.Api;
 
@@ -22,13 +21,27 @@ namespace Hattem.CQRS.Notifications.Pipeline
     {
         private readonly ImmutableArray<INotificationPipelineStep> _steps;
 
-        public NotificationExecutor(IEnumerable<INotificationPipelineStep> steps)
+        public NotificationExecutor(
+            IEnumerable<INotificationPipelineStep> steps,
+            IPipelineStepCoordinator<INotificationPipelineStep> stepCoordinator
+        )
         {
-            _steps = steps.ToImmutableArray();
+            if (steps == null)
+            {
+                throw new ArgumentNullException(nameof(steps));
+            }
+
+            if (stepCoordinator == null)
+            {
+                throw new ArgumentNullException(nameof(stepCoordinator));
+            }
+
+            _steps = stepCoordinator.Build(steps);
         }
 
         public Task<ApiResponse<Unit>> Handle<TNotification>(
-            NotificationExecutionContext<TSession, TNotification> context)
+            NotificationExecutionContext<TSession, TNotification> context
+        )
             where TNotification : INotification
         {
             NotifyCache<TNotification>.EnsureInitialized(_steps);

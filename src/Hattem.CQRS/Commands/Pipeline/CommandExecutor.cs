@@ -27,9 +27,22 @@ namespace Hattem.CQRS.Commands.Pipeline
     {
         private readonly ImmutableArray<ICommandPipelineStep> _steps;
 
-        public CommandExecutor(IEnumerable<ICommandPipelineStep> steps)
+        public CommandExecutor(
+            IEnumerable<ICommandPipelineStep> steps,
+            IPipelineStepCoordinator<ICommandPipelineStep> stepCoordinator
+        )
         {
-            _steps = steps.ToImmutableArray();
+            if (steps == null)
+            {
+                throw new ArgumentNullException(nameof(steps));
+            }
+
+            if (stepCoordinator == null)
+            {
+                throw new ArgumentNullException(nameof(stepCoordinator));
+            }
+
+            _steps = stepCoordinator.Build(steps);
         }
 
         public Task<ApiResponse<Unit>> Execute<TCommand>(

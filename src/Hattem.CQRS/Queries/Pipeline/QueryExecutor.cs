@@ -22,9 +22,22 @@ namespace Hattem.CQRS.Queries.Pipeline
     {
         private readonly ImmutableArray<IQueryPipelineStep> _steps;
 
-        public QueryExecutor(IEnumerable<IQueryPipelineStep> steps)
+        public QueryExecutor(
+            IEnumerable<IQueryPipelineStep> steps,
+            IPipelineStepCoordinator<IQueryPipelineStep> stepCoordinator
+        )
         {
-            _steps = steps.ToImmutableArray();
+            if (steps == null)
+            {
+                throw new ArgumentNullException(nameof(steps));
+            }
+
+            if (stepCoordinator == null)
+            {
+                throw new ArgumentNullException(nameof(stepCoordinator));
+            }
+
+            _steps = stepCoordinator.Build(steps);
         }
 
         public Task<ApiResponse<TResult>> Process<TQuery, TResult>(in QueryExecutionContext<TConnection, TQuery, TResult> context)

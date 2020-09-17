@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Hattem.Api;
 using Hattem.CQRS.Extensions;
@@ -60,8 +61,7 @@ namespace Hattem.CQRS.Tests
             await session.ProcessQuery(query);
 
             CatchQueryPipelineStep.AssertContextCaptured<QueryMockResult>(
-                context => context.Handler is QueryHandlerDiscovery<IQueryHandler<HattemSessionMock, QueryMock, QueryMockResult>, HattemSessionMock, QueryMock, QueryMockResult> handlerDiscovery
-                    && handlerDiscovery.Name == typeof(QueryHandlerMock).GetFriendlyName());
+                context => context.Handler is QueryHandlerAdapter<IQueryHandler<HattemSessionMock, QueryMock, QueryMockResult>, HattemSessionMock, QueryMock, QueryMockResult>);
         }
 
         [Fact(DisplayName = "Should execute pipeline and pass query in context")]

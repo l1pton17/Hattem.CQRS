@@ -1,4 +1,4 @@
-﻿using Hattem.CQRS.DependencyInjection;
+﻿using Hattem.CQRS.Extensions.DependencyInjection;
 using Hattem.CQRS.Tests.Framework;
 using Hattem.CQRS.Tests.Framework.Commands.Pipeline;
 using Hattem.CQRS.Tests.Framework.Notifications.Pipeline;

@@ -1,24 +1,33 @@
 ﻿using System;
+using Hattem.CQRS.Containers;
+using Hattem.CQRS.Extensions;
 using Hattem.CQRS.Queries.Pipeline;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Hattem.CQRS.Queries
 {
     public sealed class QueryExecutionPipelineBuilder
     {
-        private readonly IServiceCollection _services;
+        private readonly IContainerConfigurator _container;
+        private readonly IPipelineStepCoordinator<IQueryPipelineStep> _stepCoordinator;
 
-        public QueryExecutionPipelineBuilder(IServiceCollection services)
+        public QueryExecutionPipelineBuilder(IContainerConfigurator container)
         {
-            _services = services ?? throw new ArgumentNullException(nameof(services));
+            _container = container ?? throw new ArgumentNullException(nameof(container));
+            _stepCoordinator = new PipelineStepCoordinator<IQueryPipelineStep>();
         }
 
         public QueryExecutionPipelineBuilder Use<TPipelineStep>()
             where TPipelineStep : class, IQueryPipelineStep
         {
-            _services.AddSingleton<IQueryPipelineStep, TPipelineStep>();
+            _stepCoordinator.Add<TPipelineStep>();
+            _container.AddSingleton<IQueryPipelineStep, TPipelineStep>();
 
             return this;
+        }
+
+        internal void Build()
+        {
+            _container.AddSingletonInstance(typeof(IPipelineStepCoordinator<IQueryPipelineStep>), _stepCoordinator);
         }
     }
 }

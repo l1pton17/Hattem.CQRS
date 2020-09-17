@@ -9,8 +9,8 @@
     <e p="C:\Users\sitdi\.nuget\packages\xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll" t="Include" />
     <e p="C:\Users\sitdi\.nuget\packages\xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll" t="Include" />
     <e p="C:\Users\sitdi\.nuget\packages\xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
-    <e p="C:\Users\sitdi\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\sitdi\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_Hattem.CQRS.1920169047.00" t="ExcludeRecursive" />
+    <e p="C:\Users\sitdi\AppData\local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\sitdi\AppData\local\JetBrains\Rider2020.2\resharper-host\local\Transient\Rider\v202\SolutionCaches\_Hattem.CQRS.1920169047.00" t="ExcludeRecursive" />
     <e p="D:\projects\Hattem\Hattem.CQRS" t="IncludeFlat">
       <e p="Hattem.CQRS.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
@@ -21,37 +21,33 @@
           <e p="Commands" t="Include">
             <e p="CommandExecutionContext.cs" t="Include" />
             <e p="CommandExecutionPipelineBuilder.cs" t="Include" />
-            <e p="CommandHandlerDiscovery.cs" t="Include" />
+            <e p="CommandHandlerAdapter.cs" t="Include" />
             <e p="CommandProcessor.cs" t="Include" />
             <e p="CommandProcessorFactory.cs" t="Include" />
             <e p="ICommand.cs" t="Include" />
             <e p="ICommandHandler.cs" t="Include" />
-            <e p="IInvalidateCacheCommandHandler.cs" t="Include" />
             <e p="Pipeline" t="Include">
               <e p="CommandExecutor.cs" t="Include" />
               <e p="ICommandPipelineStep.cs" t="Include" />
-              <e p="Steps" t="Include">
-                <e p="InvalidateCacheCommandPipelineStep.cs" t="Include" />
-              </e>
             </e>
           </e>
-          <e p="CQRSErrorCodes.cs" t="Include" />
+          <e p="Containers" t="Include">
+            <e p="DependencyLifetime.cs" t="Include" />
+            <e p="IContainerBuilder.cs" t="Include" />
+            <e p="IContainerConfigurator.cs" t="Include" />
+          </e>
           <e p="DependencyInjection" t="Include">
             <e p="CQRSBuilder.cs" t="Include" />
-            <e p="CQRSServiceCollectionExtensions.cs" t="Include" />
-          </e>
-          <e p="Errors" t="Include">
-            <e p="CacheNotFoundError.cs" t="Include" />
           </e>
           <e p="Extensions" t="Include">
-            <e p="HandlerExtension.cs" t="Include" />
+            <e p="ContainerBuilderExtensions.cs" t="Include" />
+            <e p="ContainerConfiguratorExtensions.cs" t="Include" />
             <e p="TypeExtensions.cs" t="Include" />
           </e>
+          <e p="HandlerAdapterFactory.cs" t="Include" />
           <e p="HandlerProvider.cs" t="Include" />
           <e p="Hattem.CQRS.csproj" t="IncludeRecursive" />
-          <e p="ICacheStorage.cs" t="Include" />
-          <e p="IHasCacheStorage.cs" t="Include" />
-          <e p="IHasHandlerName.cs" t="Include" />
+          <e p="IHandlerDiscovery.cs" t="Include" />
           <e p="IHattemConnection.cs" t="Include" />
           <e p="IHattemSession.cs" t="Include" />
           <e p="IHattemSessionFactory.cs" t="Include" />
@@ -69,33 +65,45 @@
           </e>
           <e p="obj" t="ExcludeRecursive">
             <e p="Release" t="Include">
-              <e p="netcoreapp3.1" t="Include">
-                <e p="Hattem.CQRS.AssemblyInfo.cs" t="Include" />
-              </e>
               <e p="netstandard2.0" t="Include">
                 <e p="Hattem.CQRS.AssemblyInfo.cs" t="Include" />
               </e>
             </e>
           </e>
+          <e p="PipelineStepCoordinator.cs" t="Include" />
           <e p="Queries" t="Include">
-            <e p="ICachedQueryHandler.cs" t="Include" />
             <e p="IQuery.cs" t="Include" />
             <e p="IQueryHandler.cs" t="Include" />
             <e p="Pipeline" t="Include">
               <e p="IQueryPipelineStep.cs" t="Include" />
               <e p="QueryExecutor.cs" t="Include" />
-              <e p="Steps" t="Include">
-                <e p="CacheQueryPipelineStep.cs" t="Include" />
-              </e>
             </e>
-            <e p="QueryCacheKey.cs" t="Include" />
             <e p="QueryExecutionContext.cs" t="Include" />
             <e p="QueryExecutionPipelineBuilder.cs" t="Include" />
-            <e p="QueryHandlerDiscovery.cs" t="Include" />
+            <e p="QueryHandlerAdapter.cs" t="Include" />
             <e p="QueryProcessor.cs" t="Include" />
             <e p="QueryProcessorFactory.cs" t="Include" />
           </e>
           <e p="Returns.cs" t="Include" />
+        </e>
+        <e p="Hattem.CQRS.Extensions.DependencyInjection" t="IncludeRecursive">
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="Containers" t="Include">
+            <e p="ServiceCollectionAdapter.cs" t="Include" />
+            <e p="ServiceProviderAdapter.cs" t="Include" />
+          </e>
+          <e p="CQRSServiceCollectionExtensions.cs" t="Include" />
+          <e p="Hattem.CQRS.Extensions.DependencyInjection.csproj" t="IncludeRecursive" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Release" t="Include">
+              <e p="netcoreapp3.1" t="Include">
+                <e p="Hattem.CQRS.Extensions.DependencyInjection.AssemblyInfo.cs" t="Include" />
+              </e>
+              <e p="netstandard2.0" t="Include">
+                <e p="Hattem.CQRS.Extensions.DependencyInjection.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Hattem.CQRS.Sql" t="IncludeRecursive">
           <e p="bin" t="ExcludeRecursive" />
