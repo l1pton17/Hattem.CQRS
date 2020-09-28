@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using System.Threading.Tasks;
-using Hattem.CQRS.DependencyInjection;
+using Hattem.CQRS.Extensions.DependencyInjection;
 using Hattem.CQRS.Sql.DependencyInjection;
 using Hattem.CQRS.Sql.Extensions;
 using Hattem.CQRS.Sql.Tests.Framework.Commands.TestItems;

@@ -46,6 +46,7 @@
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/AnotherCommandHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Hattem.CQRS/IHattemSessionFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Framework/Commands/ICommandHandlerMock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EBE97773-A052-4C1A-98B5-38B8576D2E15/ef/492e1add/ErrorPredicate.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4065B38D-0F9F-44D9-8F53-F4C9102AF396/1D9/Popcnt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4065B38D-0F9F-44D9-8F53-F4C9102AF396/EA/BitOperations.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/EditTestItemCommand.cs" root0="FORCE_HIGHLIGHTING" />
@@ -237,8 +238,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/SqlHattemSession.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Notifications/Events/TestItems/TestItemAddedDomainEvent.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/AddTestItemCommand.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Notifications/Events/TestItems/TestItemAddedStructDomainEvent.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/AddTestItemStructCommand.cs" />
@@ -250,7 +249,6 @@
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/Hattem.CQRS.Tests.csproj" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Hattem.CQRS.Sql.Tests.csproj" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/Commands/TestItems/DropTestItemTableCommand.cs" />
-        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/TestFixture.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/TestCollection.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/TestsBase.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/ClassCQRSTests.cs" />
@@ -273,7 +271,6 @@
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/HandlerProvider.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/HandlerAdapterFactory.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Hattem.CQRS.csproj" />
-        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Extensions.DependencyInjection/Hattem.CQRS.Extensions.DependencyInjection.csproj" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS.Extensions.DependencyInjection/Containers/ServiceProviderAdapter.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS.Extensions.DependencyInjection/CQRSServiceCollectionExtensions.cs" />
         <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Tests/ExecuteAndReturnCommandProcessorTests.cs" />
@@ -288,6 +285,10 @@
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Notifications/NotificationExecutionPipelineBuilder.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Commands/CommandExecutionPipelineBuilder.cs" />
         <option value="$PROJECT_DIR$/src/Hattem.CQRS/Queries/QueryExecutionPipelineBuilder.cs" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Extensions.DependencyInjection/Hattem.CQRS.Extensions.DependencyInjection.csproj" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/Hattem.CQRS.Sql.csproj" />
+        <option value="$PROJECT_DIR$/src/Hattem.CQRS.Sql/DependencyInjection/SqlHattemCQRSServiceCollectionExtensions.cs" />
+        <option value="$PROJECT_DIR$/tests/Hattem.CQRS.Sql.Tests/Framework/TestFixture.cs" />
       </list>
     </option>
   </component>
@@ -334,6 +335,8 @@
       <workItem from="1598988059836" duration="1198000" />
       <workItem from="1599770289243" duration="6226000" />
       <workItem from="1600380239681" duration="762000" />
+      <workItem from="1600381517740" duration="1267000" />
+      <workItem from="1601320962970" duration="1494000" />
     </task>
     <servers />
   </component>
@@ -446,10 +449,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="958" y="253" width="657" height="534" key="find.popup/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1597185094034" />
-    <state x="936" y="240" key="run.anything.popup" timestamp="1595466032114">
+    <state x="936" y="240" key="run.anything.popup" timestamp="1601322469480">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="936" y="240" key="run.anything.popup/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1595466032114" />
+    <state x="936" y="240" key="run.anything.popup/2560.0.1920.1040/1919.-1080.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1601322469480" />
     <state x="943" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597708214200">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

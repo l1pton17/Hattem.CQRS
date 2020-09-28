@@ -1,5 +1,5 @@
 ﻿using Hattem.CQRS.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+using Hattem.CQRS.Extensions;
 
 namespace Hattem.CQRS.Sql.DependencyInjection
 {
@@ -8,7 +8,7 @@ namespace Hattem.CQRS.Sql.DependencyInjection
         public static CQRSBuilder UseSql<TDbConnectionFactory>(this CQRSBuilder builder)
             where TDbConnectionFactory : class, IDbConnectionFactory
         {
-            builder.Services.TryAddSingleton<IDbConnectionFactory, TDbConnectionFactory>();
+            builder.Container.AddSingleton<IDbConnectionFactory, TDbConnectionFactory>();
 
             return builder
                 .UseConnection<ISqlHattemSessionFactory, SqlHattemSessionFactory, SqlHattemSession>();
